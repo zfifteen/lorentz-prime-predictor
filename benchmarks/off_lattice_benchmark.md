@@ -8,10 +8,10 @@ This benchmark combines the stages currently available in the repository: $10^4 
 
 Implemented stages:
 
-- `baseline`: $10^4 \ldots 10^{12}$ from committed exact artifact
-- `stage_a`: $10^{13} \ldots 10^{14}$ from committed exact artifact
-- `stage_b`: $10^{15} \ldots 10^{16}$ from committed exact artifact
-- `stage_c`: $10^{17} \ldots 10^{18}$ (local continuation) from workspace C predictor
+- `baseline`: $10^4 \ldots 10^{12}$ from published exact
+- `stage_a`: $10^{13} \ldots 10^{14}$ from reproducible exact
+- `stage_b`: $10^{15} \ldots 10^{16}$ from reproducible exact
+- `stage_c`: $10^{17} \ldots 10^{18}$ (local continuation) from local continuation
 
 Families:
 
@@ -131,6 +131,6 @@ Ratios below $1$ mean LPP is better on that metric in that stage-family cell.
 LPP loses the worst-case seed ppm lead on at least one declared scaling stage.
 
 
-The horizon $10^4 \ldots 10^{12}$, $10^{13} \ldots 10^{14}$, $10^{15} \ldots 10^{16}$ is still exact because those stages use committed exact artifacts.
+The horizon $10^4 \ldots 10^{12}$, $10^{13} \ldots 10^{14}$, $10^{15} \ldots 10^{16}$ remains in the reproducible exact class.
 
-The local stage is a local continuation built from the workspace C predictor rather than an exact external label source.
+The local stage belongs to the local continuation class rather than the published exact or reproducible exact classes.

@@ -4,7 +4,7 @@ This document defines the public claim boundary for the repository. It exists so
 
 ## Current Status
 
-This repository now supports narrow empirical claims, but only on the exact scopes and ground-truth sources already declared in the benchmark artifacts.
+This repository now supports narrow empirical claims, but only on the scopes and provenance classes already declared in the benchmark artifacts.
 
 At the current stage, the repository supports:
 
@@ -12,21 +12,21 @@ At the current stage, the repository supports:
 - the formula chosen for `lpp_seed`
 - the method distinction between `lpp_seed` and `lpp_refined_predictor`
 - the benchmark rules that comparative claims must satisfy
-- exact comparative claims through `stage_b`
+- reproducible exact comparative claims through `stage_b`
 - local continuation claims on `stage_c`
 
 Current documents may say that:
 
-- on the completed exact stages through `stage_b`, `lpp_seed` does not retain the best worst-case seed ppm
-- on the completed exact stages through `stage_b`, `li_inverse_seed` has the best worst-case, mean, and median seed ppm in every tested scaling-stage family
+- on the completed reproducible exact stages through `stage_b`, `lpp_seed` does not retain the best worst-case seed ppm
+- on the completed reproducible exact stages through `stage_b`, `li_inverse_seed` has the best worst-case, mean, and median seed ppm in every tested scaling-stage family
 - on the local `stage_c` continuation, `lpp_seed` has the best worst-case seed ppm in every tested family
 
 No current document should imply that:
 
-- the seed is benchmark-dominant on the exact scaling horizon
+- the seed is benchmark-dominant on the published exact or reproducible exact scaling horizon
 - the scaling answer is exact through `stage_c`
 - the refined predictor is already practically superior
-- the local continuation has the same evidence status as the exact stages
+- the local continuation has the same evidence status as the published exact or reproducible exact stages
 
 ## Claim Classes
 

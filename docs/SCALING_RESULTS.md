@@ -1,16 +1,16 @@
 # Scaling Results
 
-This document answers the main scaling question on the exact adversarial horizon that is currently completed in the repository.
+This document answers the main scaling question on the reproducible exact adversarial horizon that is currently completed in the repository.
 
 ## Direct Answer
 
-The best current exact answer is:
+The best current reproducible exact answer is:
 
 $$
 \text{the LPP seed advantage does not survive the completed scaling stages.}
 $$
 
-That statement is exact and bounded. It applies only to the committed completed horizon:
+That statement is reproducible exact and bounded. It applies only to the committed completed horizon:
 
 $$
 10^4 \ldots 10^{12}, \qquad 10^{13} \ldots 10^{14}, \qquad 10^{15} \ldots 10^{16}.
@@ -26,7 +26,7 @@ The stage-aware benchmark uses a fixed mechanical rule:
 - `survives in the tail only`
 - `does not survive`
 
-On the completed scaling stages now committed in the repository, the result is:
+On the completed reproducible exact scaling stages now committed in the repository, the result is:
 
 `does not survive`
 
@@ -87,7 +87,7 @@ LPP on the same cells:
 
 At the baseline horizon, the LPP seed looked unusually strong on adversarial families.
 
-At the deeper completed exact stages, that pattern reverses sharply. The inverse-log-integral seed is not merely slightly ahead. On worst-case seed ppm it is ahead by large ratios in every completed scaling-stage family.
+At the deeper completed reproducible exact stages, that pattern reverses sharply. The inverse-log-integral seed is not merely slightly ahead. On worst-case seed ppm it is ahead by large ratios in every completed scaling-stage family.
 
 The strongest ratio examples from the mechanical summary are:
 
@@ -99,7 +99,7 @@ The strongest ratio examples from the mechanical summary are:
 The cleanest reading of the current evidence is:
 
 - the baseline LPP win was real on the tested baseline horizon
-- that win did not persist on the deeper completed exact scaling stages
+- that win did not persist on the deeper completed reproducible exact scaling stages
 - on the completed scaling horizon, the best seed is `li_inverse_seed`, not `lpp_seed`
 
 ## Local Stage C Continuation
@@ -110,7 +110,7 @@ $$
 10^{17} \ldots 10^{18}
 $$
 
-where the label source is the workspace C predictor rather than a committed exact external dataset.
+where the label source is the declared local continuation source rather than a committed exact external dataset.
 
 On that local stage:
 
@@ -120,7 +120,7 @@ On that local stage:
 
 So the local continuation no longer favors `li_inverse_seed`. It strongly favors `lpp_seed`.
 
-That is a real local result, but it is not the same kind of evidence as the exact stages through `stage_b`.
+That is a real local result, but it is not the same kind of evidence as the reproducible exact stages through `stage_b`.
 
 ## Figures
 

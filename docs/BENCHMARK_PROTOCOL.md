@@ -43,6 +43,12 @@ If a cited Axler- or Dusart-derived object is a bound rather than a point estima
 
 Each benchmark run must declare one exact ground-truth strategy for $p_n$ and, if rank error is reported, one exact ground-truth strategy for $\pi(x)$.
 
+The repository uses three provenance classes for label sources:
+
+- `published exact`: published external exact sources such as OEIS
+- `reproducible exact`: declared exact local generation with committed artifacts and deterministic reproduction steps
+- `local continuation`: local non-published continuation labels that are not claimed as published exact ground truth
+
 Acceptable exact ground-truth sources are:
 
 - a declared external exact dataset with recorded provenance and checksum
@@ -51,6 +57,7 @@ Acceptable exact ground-truth sources are:
 The report for each run must state:
 
 - the ground-truth source name
+- the provenance class
 - the implementation or dataset version
 - the numerical horizon supported by that source in the run
 

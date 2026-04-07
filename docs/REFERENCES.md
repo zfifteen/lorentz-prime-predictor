@@ -2,7 +2,7 @@
 
 This document records the primary citation targets for the Lorentz Prime Predictor repository. It exists so that later implementation, benchmark, and release documents cite a stable, declared reference set rather than ad hoc sources.
 
-The list is intentionally narrow. It covers the main asymptotic backbone, the classical and modern nth-prime comparator literature, asymptotic inversion references relevant to inverse-logarithmic-integral comparators, and exact-oracle references relevant to future benchmark runs.
+The list is intentionally narrow. It covers the main asymptotic backbone, the classical and modern nth-prime comparator literature, asymptotic inversion references relevant to inverse-logarithmic-integral comparators, and exact-prime literature relevant to future benchmark runs.
 
 ## Prime Number Theorem Foundations
 
@@ -34,13 +34,11 @@ This is the main comparator spine for future benchmark tables. If the repository
 
 If the repository later implements a specific numerical scheme for the $\operatorname{li}^{-1}(n)$ comparator, that implementation should add its exact method citation in the benchmark artifact or implementation notes rather than assuming this baseline list is already specific enough.
 
-## Exact Prime-Counting and Prime-Generation Oracles
+## Exact Prime-Counting Literature
 
 - Jeffrey C. Lagarias, Victor S. Miller, and Andrew M. Odlyzko, "Computing $\pi(x)$: The Meissel-Lehmer Method," *Mathematics of Computation* 44(170) (1985), 537-560.
-- Kim Walisch, `primecount`, official repository. [GitHub](https://github.com/kimwalisch/primecount)
-- Kim Walisch, `primesieve`, official repository. [GitHub](https://github.com/kimwalisch/primesieve)
 
-These references are relevant to exact benchmark oracles. Future benchmark runs must still declare the actual oracle implementation and version used. This file does not precommit the repository to a single oracle implementation.
+This reference is relevant to exact benchmark methods. Future benchmark runs must still declare the actual method and provenance used. This file does not precommit the repository to any one implementation.
 
 ## Use Rule
 

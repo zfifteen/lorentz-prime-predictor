@@ -26,10 +26,10 @@
     "stage_c": "$10^{17} \\ldots 10^{18}$ (local continuation)"
   },
   "stage_sources": {
-    "baseline": "committed exact artifact",
-    "stage_a": "committed exact artifact",
-    "stage_b": "committed exact artifact",
-    "stage_c": "workspace C predictor"
+    "baseline": "published exact",
+    "stage_a": "reproducible exact",
+    "stage_b": "reproducible exact",
+    "stage_c": "local continuation"
   },
   "exact_stages": [
     "baseline",
