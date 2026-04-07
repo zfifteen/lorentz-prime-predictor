@@ -1,22 +1,23 @@
 # Off-Lattice Adversarial Benchmark
 
-LPP loses the worst-case seed ppm lead on at least one exact scaling stage.
+LPP loses the worst-case seed ppm lead on at least one declared scaling stage.
 
-## Exact Horizon
+## Declared Horizon
 
-This benchmark combines the committed exact stages currently available in the repository: $10^4 \ldots 10^{12}$, $10^{13} \ldots 10^{14}$, $10^{15} \ldots 10^{16}$.
+This benchmark combines the stages currently available in the repository: $10^4 \ldots 10^{12}$, $10^{13} \ldots 10^{14}$, $10^{15} \ldots 10^{16}$, $10^{17} \ldots 10^{18}$ (Z5D-backed).
 
 Implemented stages:
 
-- `baseline`: $10^4 \ldots 10^{12}$
-- `stage_a`: $10^{13} \ldots 10^{14}$
-- `stage_b`: $10^{15} \ldots 10^{16}$
+- `baseline`: $10^4 \ldots 10^{12}$ from committed exact artifact
+- `stage_a`: $10^{13} \ldots 10^{14}$ from committed exact artifact
+- `stage_b`: $10^{15} \ldots 10^{16}$ from committed exact artifact
+- `stage_c`: $10^{17} \ldots 10^{18}$ (Z5D-backed) from workspace Z5D C predictor
 
 Families:
 
 - `off_lattice_decimal`: $m \cdot 10^k$ with $m = 2,\dots,9$
 - `boundary_window`: all integers in $[10^k - 128,\; 10^k + 128]$
-- `dense_local_window`: exact local sweeps of length $1024$ at lower, middle, and upper locations inside each new stage exponent
+- `dense_local_window`: deterministic local sweeps of length $1024$ at lower, middle, and upper locations inside each new stage exponent
 
 ## Mechanical Conclusion
 
@@ -30,6 +31,9 @@ Conclusion: `does not survive`.
 | stage_b | boundary_window | 68.900290 | li_inverse_seed | 0.005202 | 13244.415233 | li_inverse_seed |
 | stage_b | dense_local_window | 68.900290 | li_inverse_seed | 0.010553 | 6529.176853 | li_inverse_seed |
 | stage_b | off_lattice_decimal | 82.532361 | li_inverse_seed | 0.003699 | 22312.597393 | li_inverse_seed |
+| stage_c | boundary_window | 97.402887 | li_inverse_seed | 97.412202 | 0.999904 | lpp_seed |
+| stage_c | dense_local_window | 0.000000 | li_inverse_seed | 97.412202 | 0.000000 | lpp_seed |
+| stage_c | off_lattice_decimal | 0.000000 | li_inverse_seed | 111.087273 | 0.000000 | lpp_seed |
 
 ## Best Seed Max ppm by Stage and Family
 
@@ -43,6 +47,9 @@ Conclusion: `does not survive`.
 | stage_b | boundary_window | li_inverse_seed | 0.005202 |
 | stage_b | dense_local_window | li_inverse_seed | 0.010553 |
 | stage_b | off_lattice_decimal | li_inverse_seed | 0.003699 |
+| stage_c | boundary_window | lpp_seed | 97.402887 |
+| stage_c | dense_local_window | lpp_seed | 0.000000 |
+| stage_c | off_lattice_decimal | lpp_seed | 0.000000 |
 
 ## Best Seed Mean ppm by Stage and Family
 
@@ -56,6 +63,9 @@ Conclusion: `does not survive`.
 | stage_b | boundary_window | li_inverse_seed | 0.003575 |
 | stage_b | dense_local_window | li_inverse_seed | 0.004808 |
 | stage_b | off_lattice_decimal | li_inverse_seed | 0.001616 |
+| stage_c | boundary_window | lpp_seed | 0.351334 |
+| stage_c | dense_local_window | lpp_seed | 0.000000 |
+| stage_c | off_lattice_decimal | lpp_seed | 0.000000 |
 
 ## Worst-Case Seed Rows Overall
 
@@ -108,8 +118,19 @@ Ratios below $1$ mean LPP is better on that metric in that stage-family cell.
 
 ![Dense local window ranked seed ppm stage_b](./plots/off_lattice/dense_local_window_ranked_seed_ppm_stage_b.png)
 
+### Boundary Signed Error Heatmap: stage_c
+
+![Boundary signed seed error stage_c](./plots/off_lattice/boundary_window_signed_seed_error_lpp_stage_c.png)
+
+### Dense Local Window Ranked Seed ppm: stage_c
+
+![Dense local window ranked seed ppm stage_c](./plots/off_lattice/dense_local_window_ranked_seed_ppm_stage_c.png)
+
 ## Conclusion
 
-LPP loses the worst-case seed ppm lead on at least one exact scaling stage.
+LPP loses the worst-case seed ppm lead on at least one declared scaling stage.
 
-This answer is exact on the committed horizon and says nothing beyond that horizon.
+
+The horizon $10^4 \ldots 10^{12}$, $10^{13} \ldots 10^{14}$, $10^{15} \ldots 10^{16}$ is still exact because those stages use committed exact artifacts.
+
+The Z5D-backed stage is a local continuation built from the workspace C predictor rather than an exact external label source.

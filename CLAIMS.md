@@ -4,16 +4,29 @@ This document defines the public claim boundary for the repository. It exists so
 
 ## Current Status
 
-No empirical performance claim is currently supported by this repository.
+This repository now supports narrow empirical claims, but only on the exact scopes and ground-truth sources already declared in the benchmark artifacts.
 
-At the current stage, the repository supports only definitional claims about:
+At the current stage, the repository supports:
 
 - the project name and public vocabulary
 - the formula chosen for `lpp_seed`
 - the method distinction between `lpp_seed` and `lpp_refined_predictor`
-- the benchmark rules that future empirical claims must satisfy
+- the benchmark rules that comparative claims must satisfy
+- exact comparative claims through `stage_b`
+- Z5D-backed local continuation claims on `stage_c`
 
-No current document should imply that the seed is already benchmark-dominant, that the refined predictor is already practically superior, or that any comparative result has already been reproduced in this repository.
+Current documents may say that:
+
+- on the completed exact stages through `stage_b`, `lpp_seed` does not retain the best worst-case seed ppm
+- on the completed exact stages through `stage_b`, `li_inverse_seed` has the best worst-case, mean, and median seed ppm in every tested scaling-stage family
+- on the Z5D-backed local `stage_c` continuation, `lpp_seed` has the best worst-case seed ppm in every tested family
+
+No current document should imply that:
+
+- the seed is benchmark-dominant on the exact scaling horizon
+- the scaling answer is exact through `stage_c`
+- the refined predictor is already practically superior
+- the local Z5D-backed continuation has the same evidence status as the exact stages
 
 ## Claim Classes
 
@@ -43,10 +56,10 @@ These claims concern `lpp_seed` only.
 
 | Claim | Required evidence |
 |---|---|
-| "Best mean ppm on family $F$." | Held-out seed table on declared family $F$, full declared point-estimate comparator set from [BENCHMARK_PROTOCOL.md](./BENCHMARK_PROTOCOL.md), declared oracle, raw artifact, and summary artifact. |
+| "Best mean ppm on family $F$." | Held-out seed table on declared family $F$, full declared point-estimate comparator set from [BENCHMARK_PROTOCOL.md](./BENCHMARK_PROTOCOL.md), declared ground-truth source, raw artifact, and summary artifact. |
 | "Best median ppm on family $F$." | Same as above, with median ppm reported for every comparator. |
 | "Best worst-case ppm on range $R$." | Same as above, with declared range $R$ and worst-case rows published. |
-| "Smaller mean absolute rank error than comparator $X$." | Held-out seed table with exact $\pi(x)$ oracle available on the declared horizon and aggregate rank-error statistics for both methods. |
+| "Smaller mean absolute rank error than comparator $X$." | Held-out seed table with exact $\pi(x)$ ground-truth source available on the declared horizon and aggregate rank-error statistics for both methods. |
 | "Lower signed bias than comparator $X$." | Held-out seed table with mean signed error and sign ratio reported for both methods. |
 | "Seed stays within the declared Axler or Dusart bound on range $R$." | Bound-validity table on declared range $R$, exact source citation, and explicit statement that the comparison is a bound check rather than a ppm ranking. |
 
@@ -64,8 +77,8 @@ These claims concern `lpp_refined_predictor` only.
 
 | Claim | Required evidence |
 |---|---|
-| "Best refined mean ppm on family $F$." | Held-out refined table on declared family $F$, shared refinement rule across predictors, declared oracle, and raw artifact. |
-| "Smaller refined rank error than comparator $X$." | Same, with exact $\pi(x)$ oracle and aggregate rank-error statistics on the declared horizon. |
+| "Best refined mean ppm on family $F$." | Held-out refined table on declared family $F$, shared refinement rule across predictors, declared ground-truth source, and raw artifact. |
+| "Smaller refined rank error than comparator $X$." | Same, with exact $\pi(x)$ ground-truth source and aggregate rank-error statistics on the declared horizon. |
 | "Useful launch point for deterministic prime output." | Separate seed and refined tables showing both seed proximity and refined-output behavior under the declared shared refinement rule. |
 
 The following are not sufficient for a refined claim:

@@ -102,6 +102,26 @@ The cleanest reading of the current evidence is:
 - that win did not persist on the deeper completed exact scaling stages
 - on the completed scaling horizon, the best seed is `li_inverse_seed`, not `lpp_seed`
 
+## Z5D-Backed Stage C Continuation
+
+The repository now also has a local continuation stage on
+
+$$
+10^{17} \ldots 10^{18}
+$$
+
+where the label source is the workspace C Z5D predictor rather than a committed exact external dataset.
+
+On that Z5D-backed stage:
+
+- `boundary_window`: `lpp_seed` max seed ppm `97.402887`, `li_inverse_seed` `97.412202`
+- `dense_local_window`: `lpp_seed` is effectively exact against the Z5D-backed labels
+- `off_lattice_decimal`: `lpp_seed` is effectively exact against the Z5D-backed labels
+
+So the local continuation no longer favors `li_inverse_seed`. It strongly favors `lpp_seed`.
+
+That is a real local result, but it is not the same kind of evidence as the exact stages through `stage_b`.
+
 ## Figures
 
 ### Stage Seed Max ppm by Family

@@ -84,3 +84,26 @@ The direct benchmark artifacts are:
 The lead figure is:
 
 ![Stage seed max ppm by family](./benchmarks/plots/off_lattice/stage_seed_max_ppm_by_family.png)
+
+## Z5D-Backed Continuation
+
+The repository now also contains a local `stage_c` continuation on
+
+$$
+10^{17} \ldots 10^{18}
+$$
+
+using the workspace C Z5D predictor as the label source for that stage.
+
+That continuation is not an exact external-label stage. It is a local Z5D-backed continuation used to keep the scaling workflow moving without `primecount`.
+
+On that Z5D-backed `stage_c` continuation, `lpp_seed` regains the best worst-case seed ppm in all three tested families:
+
+- `boundary_window`: `97.402887` ppm for `lpp_seed` versus `97.412202` for `li_inverse_seed`
+- `dense_local_window`: `lpp_seed` is effectively exact against the Z5D-backed labels
+- `off_lattice_decimal`: `lpp_seed` is effectively exact against the Z5D-backed labels
+
+So the current repository now has two distinct readings:
+
+- the exact reading through `stage_b` still says the present LPP seed does not scale best on the committed exact horizon
+- the local Z5D-backed continuation at `stage_c` strongly favors LPP

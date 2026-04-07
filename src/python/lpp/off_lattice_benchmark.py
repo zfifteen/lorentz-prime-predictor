@@ -29,6 +29,8 @@ SCALING_STAGE_SPECS = [
         "label": r"$10^4 \ldots 10^{12}$",
         "dataset": HELD_OUT_DATASET,
         "manifest": HELD_OUT_MANIFEST,
+        "source_label": "committed exact artifact",
+        "exact_labels": True,
         "min_exponent": 4,
         "max_exponent": 12,
         "include_dense_local_window": False,
@@ -39,6 +41,8 @@ SCALING_STAGE_SPECS = [
         "label": r"$10^{13} \ldots 10^{14}$",
         "dataset": "held_out_exact_primes_1e13_1e14.csv",
         "manifest": "held_out_exact_primes_1e13_1e14_manifest.json",
+        "source_label": "committed exact artifact",
+        "exact_labels": True,
         "min_exponent": 13,
         "max_exponent": 14,
         "include_dense_local_window": True,
@@ -49,6 +53,8 @@ SCALING_STAGE_SPECS = [
         "label": r"$10^{15} \ldots 10^{16}$",
         "dataset": "held_out_exact_primes_1e15_1e16.csv",
         "manifest": "held_out_exact_primes_1e15_1e16_manifest.json",
+        "source_label": "committed exact artifact",
+        "exact_labels": True,
         "min_exponent": 15,
         "max_exponent": 16,
         "include_dense_local_window": True,
@@ -56,9 +62,11 @@ SCALING_STAGE_SPECS = [
     },
     {
         "name": "stage_c",
-        "label": r"$10^{17} \ldots 10^{18}$",
-        "dataset": "held_out_exact_primes_1e17_1e18.csv",
-        "manifest": "held_out_exact_primes_1e17_1e18_manifest.json",
+        "label": r"$10^{17} \ldots 10^{18}$ (Z5D-backed)",
+        "dataset": "held_out_z5d_primes_1e17_1e18.csv",
+        "manifest": "held_out_z5d_primes_1e17_1e18_manifest.json",
+        "source_label": "workspace Z5D C predictor",
+        "exact_labels": False,
         "min_exponent": 17,
         "max_exponent": 18,
         "include_dense_local_window": True,
@@ -132,6 +140,10 @@ def declared_stage_names(include_baseline: bool = True) -> list[str]:
 
 def classification_stage_names() -> list[str]:
     return [str(spec["name"]) for spec in SCALING_STAGE_SPECS if bool(spec["classification_stage"])]
+
+
+def exact_stage_names() -> list[str]:
+    return [str(spec["name"]) for spec in SCALING_STAGE_SPECS if bool(spec["exact_labels"])]
 
 
 def stage_name_for_exponent(exponent: int) -> str:
@@ -516,6 +528,8 @@ def summarize_off_lattice_results(rows: list[dict[str, int | str | float]]) -> d
         "comparators": [str(spec["name"]) for spec in COMPARATOR_SPECS],
         "stages": stages,
         "stage_labels": {str(spec["name"]): str(spec["label"]) for spec in SCALING_STAGE_SPECS if str(spec["name"]) in stages},
+        "stage_sources": {str(spec["name"]): str(spec["source_label"]) for spec in SCALING_STAGE_SPECS if str(spec["name"]) in stages},
+        "exact_stages": [stage_name for stage_name in stages if stage_name in exact_stage_names()],
         "overall": _comparator_summary(rows),
         "by_family": _family_summary(rows, family_names),
         "by_stage": {},
@@ -555,10 +569,10 @@ def _headline_for_conclusion(conclusion: str) -> str:
     if conclusion == "not evaluated":
         return "The scaling classification has not been evaluated yet because no stage datasets beyond the baseline were included in this run."
     if conclusion == "survives strongly":
-        return "LPP keeps the best worst-case seed ppm on every exact scaling stage and also wins the average-error criterion often enough to count as a strong survival result."
+        return "LPP keeps the best worst-case seed ppm on every declared scaling stage and also wins the average-error criterion often enough to count as a strong survival result."
     if conclusion == "survives in the tail only":
-        return "LPP keeps the best worst-case seed ppm on every exact scaling stage, but the average-error advantage is mixed."
-    return "LPP loses the worst-case seed ppm lead on at least one exact scaling stage."
+        return "LPP keeps the best worst-case seed ppm on every declared scaling stage, but the average-error advantage is mixed."
+    return "LPP loses the worst-case seed ppm lead on at least one declared scaling stage."
 
 
 def write_off_lattice_benchmark_artifacts(repo_root: Path, stage_names: list[str] | None = None) -> dict[str, Path]:
@@ -604,20 +618,25 @@ def write_off_lattice_benchmark_artifacts(repo_root: Path, stage_names: list[str
     headline = _headline_for_conclusion(str(decision["conclusion"]))
     stage_labels = [summary["stage_labels"][stage_name] for stage_name in summary["stages"]]
     horizon_text = ", ".join(stage_labels)
+    exact_stage_labels = [summary["stage_labels"][stage_name] for stage_name in summary["exact_stages"]]
+    exact_horizon_text = ", ".join(exact_stage_labels)
+    has_non_exact_stage = len(summary["exact_stages"]) != len(summary["stages"])
     md_lines = [
         "# Off-Lattice Adversarial Benchmark",
         "",
         headline,
         "",
-        "## Exact Horizon",
+        "## Declared Horizon",
         "",
-        f"This benchmark combines the committed exact stages currently available in the repository: {horizon_text}.",
+        f"This benchmark combines the stages currently available in the repository: {horizon_text}.",
         "",
         "Implemented stages:",
         "",
     ]
     for stage_name in summary["stages"]:
-        md_lines.append(f"- `{stage_name}`: {summary['stage_labels'][stage_name]}")
+        md_lines.append(
+            f"- `{stage_name}`: {summary['stage_labels'][stage_name]} from {summary['stage_sources'][stage_name]}"
+        )
     md_lines.extend(
         [
             "",
@@ -625,7 +644,7 @@ def write_off_lattice_benchmark_artifacts(repo_root: Path, stage_names: list[str
             "",
             "- `off_lattice_decimal`: $m \\cdot 10^k$ with $m = 2,\\dots,9$",
             "- `boundary_window`: all integers in $[10^k - 128,\\; 10^k + 128]$",
-            "- `dense_local_window`: exact local sweeps of length $1024$ at lower, middle, and upper locations inside each new stage exponent",
+            "- `dense_local_window`: deterministic local sweeps of length $1024$ at lower, middle, and upper locations inside each new stage exponent",
             "",
             "## Mechanical Conclusion",
             "",
@@ -726,8 +745,23 @@ def write_off_lattice_benchmark_artifacts(repo_root: Path, stage_names: list[str
             "",
             headline,
             "",
-            "This answer is exact on the committed horizon and says nothing beyond that horizon.",
         ]
     )
+    if has_non_exact_stage:
+        md_lines.extend(
+            [
+                "",
+                f"The horizon {exact_horizon_text} is still exact because those stages use committed exact artifacts.",
+                "",
+                "The Z5D-backed stage is a local continuation built from the workspace C predictor rather than an exact external label source.",
+            ]
+        )
+    else:
+        md_lines.extend(
+            [
+                "",
+                "This answer is exact on the committed horizon and says nothing beyond that horizon.",
+            ]
+        )
     md_path.write_text("\n".join(md_lines) + "\n")
     return {"csv": csv_path, "summary": summary_path, "markdown": md_path}
