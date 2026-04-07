@@ -62,10 +62,10 @@ SCALING_STAGE_SPECS = [
     },
     {
         "name": "stage_c",
-        "label": r"$10^{17} \ldots 10^{18}$ (Z5D-backed)",
+        "label": r"$10^{17} \ldots 10^{18}$ (local continuation)",
         "dataset": "held_out_z5d_primes_1e17_1e18.csv",
         "manifest": "held_out_z5d_primes_1e17_1e18_manifest.json",
-        "source_label": "workspace Z5D C predictor",
+        "source_label": "workspace C predictor",
         "exact_labels": False,
         "min_exponent": 17,
         "max_exponent": 18,
@@ -753,7 +753,7 @@ def write_off_lattice_benchmark_artifacts(repo_root: Path, stage_names: list[str
                 "",
                 f"The horizon {exact_horizon_text} is still exact because those stages use committed exact artifacts.",
                 "",
-                "The Z5D-backed stage is a local continuation built from the workspace C predictor rather than an exact external label source.",
+                "The local stage is a local continuation built from the workspace C predictor rather than an exact external label source.",
             ]
         )
     else:

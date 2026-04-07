@@ -28,7 +28,7 @@ $$
 
 The old exact `stage_c` path has now been replaced in local workflow.
 
-Instead of trying to regenerate an exact external-label stage with `primecount`, the repository now uses a Z5D-backed local continuation on
+Instead of trying to regenerate an exact external-label stage with `primecount`, the repository now uses a local continuation on
 
 $$
 10^{17} \ldots 10^{18}.
@@ -90,19 +90,19 @@ $$
 \text{the strongest current exact evidence no longer supports the claim that the present LPP seed architecture scales best.}
 $$
 
-The new Z5D-backed continuation shows something different and also important:
+The new local continuation shows something different and also important:
 
 $$
-\text{when the local stage is labeled by the workspace C Z5D predictor, the continuation strongly favors LPP.}
+\text{when the local stage is labeled by the workspace C predictor, the local continuation strongly favors LPP.}
 $$
 
-That tells us the current LPP structure is much closer to the Z5D local engine than it is to the inverse-log-integral seed on that continuation stage.
+That tells us the current LPP structure is much closer to the local continuation than it is to the inverse-log-integral seed on that stage.
 
 ## Next Honest Moves
 
 The honest next moves are now much narrower:
 
-1. decide whether the repository still wants an exact external-label `stage_c`, or whether the Z5D-backed continuation is the intended local stage from now on
+1. decide whether the repository still wants an exact external-label `stage_c`, or whether the local continuation is the intended local stage from now on
 2. test whether a different fixed correction architecture can recover a tail lead on deeper exact stages
 3. derive a theory-backed correction form instead of treating the current one as the final structure
 

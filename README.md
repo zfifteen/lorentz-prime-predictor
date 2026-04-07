@@ -16,17 +16,17 @@ The seed and the refined predictor are separate estimands. Closed-form accuracy 
 
 ## Foundational Documents
 
-- [ORIGIN.md](./ORIGIN.md): the Lorentz inspiration and the invariant-normalization bridge into number theory
-- [FORMULA.md](./FORMULA.md): the closed-form seed, its constants, and the role of each term
-- [METHOD.md](./METHOD.md): the distinction between the seed and the refined predictor
-- [BENCHMARK_PROTOCOL.md](./BENCHMARK_PROTOCOL.md): the deterministic rules for comparison, artifacts, and claim language
+- [ORIGIN.md](./docs/ORIGIN.md): the Lorentz inspiration and the invariant-normalization bridge into number theory
+- [FORMULA.md](./docs/FORMULA.md): the closed-form seed, its constants, and the role of each term
+- [METHOD.md](./docs/METHOD.md): the distinction between the seed and the refined predictor
+- [BENCHMARK_PROTOCOL.md](./docs/BENCHMARK_PROTOCOL.md): the deterministic rules for comparison, artifacts, and claim language
 
 ## Research Contract Documents
 
-- [CLAIMS.md](./CLAIMS.md): the exact claim boundary for public repository language
-- [REFERENCES.md](./REFERENCES.md): the primary citation targets for formulas, comparators, and exact oracles
-- [VALIDATION_STATUS.md](./VALIDATION_STATUS.md): what is and is not validated in the repository at the current stage
-- [API.md](./API.md): the intended minimal Python and CLI contract for the reference implementation
+- [CLAIMS.md](./docs/CLAIMS.md): the exact claim boundary for public repository language
+- [REFERENCES.md](./docs/REFERENCES.md): the primary citation targets for formulas, comparators, and exact oracles
+- [VALIDATION_STATUS.md](./docs/VALIDATION_STATUS.md): what is and is not validated in the repository at the current stage
+- [API.md](./docs/API.md): the intended minimal Python and CLI contract for the reference implementation
 
 ## Scientific Position
 
@@ -45,7 +45,7 @@ Outside that shipped grid, the refined predictor remains a deterministic prime o
 This repository no longer uses `primecount` in the active local workflow.
 
 - exact contract and held-out datasets are consumed as committed artifacts
-- local prediction work should use the C Z5D predictor in the workspace project at `../archive/z5d-prime-predictor/src/c/z5d-predictor-c`
+- local prediction work should use the workspace C predictor
 - historical manifests that mention `primecount` remain as provenance for already committed exact datasets
 
 ## Current Stage
@@ -78,14 +78,14 @@ $$
 The direct benchmark artifacts are:
 
 - [benchmarks/off_lattice_benchmark.md](./benchmarks/off_lattice_benchmark.md)
-- [SCALING_RESULTS.md](./SCALING_RESULTS.md)
-- [SCALING_INTERPRETATION.md](./SCALING_INTERPRETATION.md)
+- [SCALING_RESULTS.md](./docs/SCALING_RESULTS.md)
+- [SCALING_INTERPRETATION.md](./docs/SCALING_INTERPRETATION.md)
 
 The lead figure is:
 
 ![Stage seed max ppm by family](./benchmarks/plots/off_lattice/stage_seed_max_ppm_by_family.png)
 
-## Z5D-Backed Continuation
+## Local Continuation
 
 The repository now also contains a local `stage_c` continuation on
 
@@ -93,17 +93,17 @@ $$
 10^{17} \ldots 10^{18}
 $$
 
-using the workspace C Z5D predictor as the label source for that stage.
+using the workspace C predictor as the label source for that stage.
 
-That continuation is not an exact external-label stage. It is a local Z5D-backed continuation used to keep the scaling workflow moving without `primecount`.
+That continuation is not an exact external-label stage. It is a local continuation used to keep the scaling workflow moving without `primecount`.
 
-On that Z5D-backed `stage_c` continuation, `lpp_seed` regains the best worst-case seed ppm in all three tested families:
+On that local `stage_c` continuation, `lpp_seed` regains the best worst-case seed ppm in all three tested families:
 
 - `boundary_window`: `97.402887` ppm for `lpp_seed` versus `97.412202` for `li_inverse_seed`
-- `dense_local_window`: `lpp_seed` is effectively exact against the Z5D-backed labels
-- `off_lattice_decimal`: `lpp_seed` is effectively exact against the Z5D-backed labels
+- `dense_local_window`: `lpp_seed` is effectively exact against the local stage labels
+- `off_lattice_decimal`: `lpp_seed` is effectively exact against the local stage labels
 
 So the current repository now has two distinct readings:
 
 - the exact reading through `stage_b` still says the present LPP seed does not scale best on the committed exact horizon
-- the local Z5D-backed continuation at `stage_c` strongly favors LPP
+- the local continuation at `stage_c` strongly favors LPP

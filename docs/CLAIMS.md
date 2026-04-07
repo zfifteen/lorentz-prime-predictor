@@ -13,20 +13,20 @@ At the current stage, the repository supports:
 - the method distinction between `lpp_seed` and `lpp_refined_predictor`
 - the benchmark rules that comparative claims must satisfy
 - exact comparative claims through `stage_b`
-- Z5D-backed local continuation claims on `stage_c`
+- local continuation claims on `stage_c`
 
 Current documents may say that:
 
 - on the completed exact stages through `stage_b`, `lpp_seed` does not retain the best worst-case seed ppm
 - on the completed exact stages through `stage_b`, `li_inverse_seed` has the best worst-case, mean, and median seed ppm in every tested scaling-stage family
-- on the Z5D-backed local `stage_c` continuation, `lpp_seed` has the best worst-case seed ppm in every tested family
+- on the local `stage_c` continuation, `lpp_seed` has the best worst-case seed ppm in every tested family
 
 No current document should imply that:
 
 - the seed is benchmark-dominant on the exact scaling horizon
 - the scaling answer is exact through `stage_c`
 - the refined predictor is already practically superior
-- the local Z5D-backed continuation has the same evidence status as the exact stages
+- the local continuation has the same evidence status as the exact stages
 
 ## Claim Classes
 

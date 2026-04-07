@@ -23,13 +23,13 @@
     "baseline": "$10^4 \\ldots 10^{12}$",
     "stage_a": "$10^{13} \\ldots 10^{14}$",
     "stage_b": "$10^{15} \\ldots 10^{16}$",
-    "stage_c": "$10^{17} \\ldots 10^{18}$ (Z5D-backed)"
+    "stage_c": "$10^{17} \\ldots 10^{18}$ (local continuation)"
   },
   "stage_sources": {
     "baseline": "committed exact artifact",
     "stage_a": "committed exact artifact",
     "stage_b": "committed exact artifact",
-    "stage_c": "workspace Z5D C predictor"
+    "stage_c": "workspace C predictor"
   },
   "exact_stages": [
     "baseline",

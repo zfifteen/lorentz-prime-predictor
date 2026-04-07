@@ -4,14 +4,14 @@ LPP loses the worst-case seed ppm lead on at least one declared scaling stage.
 
 ## Declared Horizon
 
-This benchmark combines the stages currently available in the repository: $10^4 \ldots 10^{12}$, $10^{13} \ldots 10^{14}$, $10^{15} \ldots 10^{16}$, $10^{17} \ldots 10^{18}$ (Z5D-backed).
+This benchmark combines the stages currently available in the repository: $10^4 \ldots 10^{12}$, $10^{13} \ldots 10^{14}$, $10^{15} \ldots 10^{16}$, $10^{17} \ldots 10^{18}$ (local continuation).
 
 Implemented stages:
 
 - `baseline`: $10^4 \ldots 10^{12}$ from committed exact artifact
 - `stage_a`: $10^{13} \ldots 10^{14}$ from committed exact artifact
 - `stage_b`: $10^{15} \ldots 10^{16}$ from committed exact artifact
-- `stage_c`: $10^{17} \ldots 10^{18}$ (Z5D-backed) from workspace Z5D C predictor
+- `stage_c`: $10^{17} \ldots 10^{18}$ (local continuation) from workspace C predictor
 
 Families:
 
@@ -133,4 +133,4 @@ LPP loses the worst-case seed ppm lead on at least one declared scaling stage.
 
 The horizon $10^4 \ldots 10^{12}$, $10^{13} \ldots 10^{14}$, $10^{15} \ldots 10^{16}$ is still exact because those stages use committed exact artifacts.
 
-The Z5D-backed stage is a local continuation built from the workspace C predictor rather than an exact external label source.
+The local stage is a local continuation built from the workspace C predictor rather than an exact external label source.

@@ -6,7 +6,7 @@ This document records what has and has not been validated in the repository at t
 
 The repository now has a minimal reference implementation, direct API tests, an exact shipped contract grid, and an exact adversarial benchmark program with completed scaling stages through `stage_b`.
 
-The active local workflow in this repository does not invoke `primecount`. Exact datasets are treated as committed artifacts, and local prediction work should use the workspace Z5D C implementation.
+The active local workflow in this repository does not invoke `primecount`. Exact datasets are treated as committed artifacts, and local prediction work should use the workspace C predictor.
 
 What is currently complete:
 
@@ -22,7 +22,7 @@ What is currently complete:
 - the minimal Python reference implementation
 - direct tests for the public API and CLI surface
 - the shipped exact contract grid through $10^{24}$
-- a Z5D-backed local `stage_c` continuation on $10^{17},10^{18}$
+- a local `stage_c` continuation on $10^{17},10^{18}$
 
 What is not yet complete:
 
@@ -36,7 +36,7 @@ What is not yet complete:
 
 | Area | Status | Notes |
 |---|---|---|
-| Conceptual framing | complete | [ORIGIN.md](./ORIGIN.md) and [README.md](./README.md) are aligned. |
+| Conceptual framing | complete | [ORIGIN.md](./ORIGIN.md) and [README.md](../README.md) are aligned. |
 | Formula specification | complete | [FORMULA.md](./FORMULA.md) fixes the current seed, constants, domain, and rounding rule. |
 | Method specification | complete | [METHOD.md](./METHOD.md) fixes the seed/refined separation. |
 | Benchmark contract | complete | [BENCHMARK_PROTOCOL.md](./BENCHMARK_PROTOCOL.md) defines the evaluation rules. |
@@ -49,11 +49,11 @@ What is not yet complete:
 | Comparator harness | complete | The off-lattice benchmark module implements the declared point-estimate comparator set for the held-out benchmark harness. |
 | Exact contract-grid artifact | complete | The shipped $10^0,\dots,10^{24}$ grid is committed in `data/KNOWN_PRIMES.md` and consumed as a fixed exact artifact in local workflow. |
 | Exact benchmark artifact beyond shipped grid | complete on committed stages | The held-out adversarial datasets through `stage_b` are committed and consumed as fixed exact artifacts in local workflow. |
-| Z5D-backed local continuation | complete | A local `stage_c` dataset on $10^{17},10^{18}$ now exists using the workspace C Z5D predictor as the label source. |
+| Local continuation | complete | A local `stage_c` dataset on $10^{17},10^{18}$ now exists using the workspace C predictor as the label source. |
 | Calibration surface declaration | not started | Constants are named, but no calibration artifact exists in this repo. |
-| Held-out benchmark evaluation | complete for exact stages through `stage_b` and local `stage_c` continuation | Exact adversarial artifacts now exist on $10^4,\dots,10^{12}$, $10^{13},10^{14}$, and $10^{15},10^{16}$, and a Z5D-backed local continuation now exists on $10^{17},10^{18}$. |
-| Visualization suite | complete for exact stages through `stage_b` and local `stage_c` continuation | Deterministic plots exist for family, boundary, dense-window, and scaling behavior across the committed exact horizon plus the Z5D-backed local continuation. |
-| Scaling answer program | complete through exact `stage_b`, with local `stage_c` continuation | The stage-aware benchmark now produces a mechanical conclusion across the exact committed horizon and the declared Z5D-backed local continuation. |
+| Held-out benchmark evaluation | complete for exact stages through `stage_b` and local `stage_c` continuation | Exact adversarial artifacts now exist on $10^4,\dots,10^{12}$, $10^{13},10^{14}$, and $10^{15},10^{16}$, and a local continuation now exists on $10^{17},10^{18}$. |
+| Visualization suite | complete for exact stages through `stage_b` and local `stage_c` continuation | Deterministic plots exist for family, boundary, dense-window, and scaling behavior across the committed exact horizon plus the local continuation. |
+| Scaling answer program | complete through exact `stage_b`, with local `stage_c` continuation | The stage-aware benchmark now produces a mechanical conclusion across the exact committed horizon and the declared local continuation. |
 | Sensitivity analysis | not started | No $\pm 10\%$ constant perturbation tables exist yet. |
 | Cost measurement | not started | No timing harness or practicality evidence exists yet. |
 
@@ -70,8 +70,8 @@ At the current stage, the repository can support statements like:
 - "The active local workflow in this repository does not require `primecount`."
 - "On the completed exact scaling stages through `stage_b`, `lpp_seed` does not retain the best worst-case seed ppm."
 - "On the completed exact scaling stages through `stage_b`, `li_inverse_seed` has the best worst-case, mean, and median seed ppm in every scaling-stage family."
-- "The repository contains a Z5D-backed local `stage_c` continuation on $10^{17},10^{18}$."
-- "On the Z5D-backed local `stage_c` continuation, `lpp_seed` has the best worst-case seed ppm in every tested family."
+- "The repository contains a local `stage_c` continuation on $10^{17},10^{18}$."
+- "On the local `stage_c` continuation, `lpp_seed` has the best worst-case seed ppm in every tested family."
 
 It cannot yet support statements like:
 
@@ -86,7 +86,7 @@ It cannot yet support statements like:
 The next validation gates are:
 
 1. deepen the semantic test suite beyond the current direct API checks
-2. decide whether to obtain an exact external-label `stage_c` source or keep the Z5D-backed continuation as the repository's local exploratory stage
+2. decide whether to obtain an exact external-label `stage_c` source or keep the local continuation as the repository's local exploratory stage
 3. add exact $\pi(x)$ support for rank-error reporting
 4. add sensitivity artifacts required by the protocol
 5. add timing artifacts required by the protocol
