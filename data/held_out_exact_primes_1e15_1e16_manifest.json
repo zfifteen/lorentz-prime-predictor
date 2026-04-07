@@ -1,0 +1,215 @@
+{
+  "stage": "stage_b",
+  "oracle": "primecount anchor plus gmpy2.next_prime stepping",
+  "oracle_version": "primecount 8.4, <https://github.com/kimwalisch/primecount>\nCopyright (C) 2013 - 2026 Kim Walisch\nBSD 2-Clause License <https://opensource.org/licenses/BSD-2-Clause>",
+  "gmpy2_version": "2.2.1",
+  "host": "macOS-26.3.1-arm64-arm-64bit-Mach-O",
+  "python": "3.13.0",
+  "started_at": "2026-04-07T10:00:34.404494+00:00",
+  "command_template": "primecount {n} --nth-prime --threads=1",
+  "row_count": 6674,
+  "run_count": 20,
+  "runs": [
+    {
+      "run_index": 1,
+      "start_n": 500000000000000,
+      "end_n": 500000000001023,
+      "length": 1024,
+      "anchor_command": "primecount 500000000000000 --nth-prime --threads=1",
+      "anchor_elapsed_seconds": 4.421373290999327,
+      "anchor_prime": 18205684894350047,
+      "method": "primecount anchor plus exact next_prime stepping"
+    },
+    {
+      "run_index": 2,
+      "start_n": 900000000000000,
+      "end_n": 900000000001023,
+      "length": 1024,
+      "anchor_command": "primecount 900000000000000 --nth-prime --threads=1",
+      "anchor_elapsed_seconds": 6.312775667000096,
+      "anchor_prime": 33314521777674083,
+      "method": "primecount anchor plus exact next_prime stepping"
+    },
+    {
+      "run_index": 3,
+      "start_n": 999999999998976,
+      "end_n": 1000000000000128,
+      "length": 1153,
+      "anchor_command": "primecount 999999999998976 --nth-prime --threads=1",
+      "anchor_elapsed_seconds": 6.688976333000028,
+      "anchor_prime": 37124508045027079,
+      "method": "primecount anchor plus exact next_prime stepping"
+    },
+    {
+      "run_index": 4,
+      "start_n": 2000000000000000,
+      "end_n": 2000000000000000,
+      "length": 1,
+      "anchor_command": "primecount 2000000000000000 --nth-prime --threads=1",
+      "anchor_elapsed_seconds": 10.298013541999353,
+      "anchor_prime": 75674484987354031,
+      "method": "primecount anchor plus exact next_prime stepping"
+    },
+    {
+      "run_index": 5,
+      "start_n": 3000000000000000,
+      "end_n": 3000000000000000,
+      "length": 1,
+      "anchor_command": "primecount 3000000000000000 --nth-prime --threads=1",
+      "anchor_elapsed_seconds": 13.262683959000242,
+      "anchor_prime": 114761954175793079,
+      "method": "primecount anchor plus exact next_prime stepping"
+    },
+    {
+      "run_index": 6,
+      "start_n": 4000000000000000,
+      "end_n": 4000000000000000,
+      "length": 1,
+      "anchor_command": "primecount 4000000000000000 --nth-prime --threads=1",
+      "anchor_elapsed_seconds": 15.837062624999817,
+      "anchor_prime": 154198357111745083,
+      "method": "primecount anchor plus exact next_prime stepping"
+    },
+    {
+      "run_index": 7,
+      "start_n": 5000000000000000,
+      "end_n": 5000000000001023,
+      "length": 1024,
+      "anchor_command": "primecount 5000000000000000 --nth-prime --threads=1",
+      "anchor_elapsed_seconds": 18.18115320800007,
+      "anchor_prime": 193894168896897487,
+      "method": "primecount anchor plus exact next_prime stepping"
+    },
+    {
+      "run_index": 8,
+      "start_n": 6000000000000000,
+      "end_n": 6000000000000000,
+      "length": 1,
+      "anchor_command": "primecount 6000000000000000 --nth-prime --threads=1",
+      "anchor_elapsed_seconds": 20.27768083399951,
+      "anchor_prime": 233796671062467577,
+      "method": "primecount anchor plus exact next_prime stepping"
+    },
+    {
+      "run_index": 9,
+      "start_n": 7000000000000000,
+      "end_n": 7000000000000000,
+      "length": 1,
+      "anchor_command": "primecount 7000000000000000 --nth-prime --threads=1",
+      "anchor_elapsed_seconds": 22.550849166999797,
+      "anchor_prime": 273871034935338403,
+      "method": "primecount anchor plus exact next_prime stepping"
+    },
+    {
+      "run_index": 10,
+      "start_n": 8000000000000000,
+      "end_n": 8000000000000000,
+      "length": 1,
+      "anchor_command": "primecount 8000000000000000 --nth-prime --threads=1",
+      "anchor_elapsed_seconds": 24.17627041600008,
+      "anchor_prime": 314092509321252353,
+      "method": "primecount anchor plus exact next_prime stepping"
+    },
+    {
+      "run_index": 11,
+      "start_n": 9000000000000000,
+      "end_n": 9000000000001023,
+      "length": 1024,
+      "anchor_command": "primecount 9000000000000000 --nth-prime --threads=1",
+      "anchor_elapsed_seconds": 26.22268108299977,
+      "anchor_prime": 354442589428511471,
+      "method": "primecount anchor plus exact next_prime stepping"
+    },
+    {
+      "run_index": 12,
+      "start_n": 9999999999998976,
+      "end_n": 10000000000000128,
+      "length": 1153,
+      "anchor_command": "primecount 9999999999998976 --nth-prime --threads=1",
+      "anchor_elapsed_seconds": 27.941651791999902,
+      "anchor_prime": 394906913903693203,
+      "method": "primecount anchor plus exact next_prime stepping"
+    },
+    {
+      "run_index": 13,
+      "start_n": 20000000000000000,
+      "end_n": 20000000000000000,
+      "length": 1,
+      "anchor_command": "primecount 20000000000000000 --nth-prime --threads=1",
+      "anchor_elapsed_seconds": 49.07975770900066,
+      "anchor_prime": 804043909088976503,
+      "method": "primecount anchor plus exact next_prime stepping"
+    },
+    {
+      "run_index": 14,
+      "start_n": 30000000000000000,
+      "end_n": 30000000000000000,
+      "length": 1,
+      "anchor_command": "primecount 30000000000000000 --nth-prime --threads=1",
+      "anchor_elapsed_seconds": 57.076194708,
+      "anchor_prime": 1218547203157505869,
+      "method": "primecount anchor plus exact next_prime stepping"
+    },
+    {
+      "run_index": 15,
+      "start_n": 40000000000000000,
+      "end_n": 40000000000000000,
+      "length": 1,
+      "anchor_command": "primecount 40000000000000000 --nth-prime --threads=1",
+      "anchor_elapsed_seconds": 66.99656845899972,
+      "anchor_prime": 1636534371233933923,
+      "method": "primecount anchor plus exact next_prime stepping"
+    },
+    {
+      "run_index": 16,
+      "start_n": 50000000000000000,
+      "end_n": 50000000000000000,
+      "length": 1,
+      "anchor_command": "primecount 50000000000000000 --nth-prime --threads=1",
+      "anchor_elapsed_seconds": 78.32483904199944,
+      "anchor_prime": 2057111629108493417,
+      "method": "primecount anchor plus exact next_prime stepping"
+    },
+    {
+      "run_index": 17,
+      "start_n": 60000000000000000,
+      "end_n": 60000000000000000,
+      "length": 1,
+      "anchor_command": "primecount 60000000000000000 --nth-prime --threads=1",
+      "anchor_elapsed_seconds": 84.47959491700021,
+      "anchor_prime": 2479752646512448607,
+      "method": "primecount anchor plus exact next_prime stepping"
+    },
+    {
+      "run_index": 18,
+      "start_n": 70000000000000000,
+      "end_n": 70000000000000000,
+      "length": 1,
+      "anchor_command": "primecount 70000000000000000 --nth-prime --threads=1",
+      "anchor_elapsed_seconds": 95.96803129199998,
+      "anchor_prime": 2904109688011287799,
+      "method": "primecount anchor plus exact next_prime stepping"
+    },
+    {
+      "run_index": 19,
+      "start_n": 80000000000000000,
+      "end_n": 80000000000000000,
+      "length": 1,
+      "anchor_command": "primecount 80000000000000000 --nth-prime --threads=1",
+      "anchor_elapsed_seconds": 101.73310358400067,
+      "anchor_prime": 3329935633920751813,
+      "method": "primecount anchor plus exact next_prime stepping"
+    },
+    {
+      "run_index": 20,
+      "start_n": 90000000000000000,
+      "end_n": 90000000000000000,
+      "length": 1,
+      "anchor_command": "primecount 90000000000000000 --nth-prime --threads=1",
+      "anchor_elapsed_seconds": 112.46168399999988,
+      "anchor_prime": 3757045731346337849,
+      "method": "primecount anchor plus exact next_prime stepping"
+    }
+  ],
+  "source": "local exact generation"
+}
