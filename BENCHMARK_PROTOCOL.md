@@ -19,7 +19,7 @@ Every benchmark in this repository must satisfy the following invariants:
 2. seed and refined results are reported separately
 3. evaluation sets are deterministic
 4. held-out sets are not used for parameter tuning
-5. exact ground truth and exact prime-counting oracles are declared per run
+5. exact ground truth sources are declared per run
 6. every comparator has a concrete implementation and a cited source
 7. every run emits raw per-point artifacts and an environment manifest
 8. summary language does not claim more than the measured predicate supports
@@ -41,18 +41,18 @@ If a cited Axler- or Dusart-derived object is a bound rather than a point estima
 
 ## Oracle Rules
 
-Each benchmark run must declare one exact oracle strategy for $p_n$ and, if rank error is reported, one exact oracle strategy for $\pi(x)$.
+Each benchmark run must declare one exact ground-truth strategy for $p_n$ and, if rank error is reported, one exact ground-truth strategy for $\pi(x)$.
 
-Acceptable exact-oracle sources are:
+Acceptable exact ground-truth sources are:
 
-- a declared local implementation based on a cited exact algorithm or library
 - a declared external exact dataset with recorded provenance and checksum
+- a declared local implementation based on a cited exact algorithm or library, only when that implementation is intentionally part of the active workflow for the run
 
 The report for each run must state:
 
-- the oracle name
+- the ground-truth source name
 - the implementation or dataset version
-- the numerical horizon supported by that oracle in the run
+- the numerical horizon supported by that source in the run
 
 If exact $\pi(x)$ is unavailable beyond the declared horizon, rank error must be omitted beyond that horizon rather than approximated.
 
@@ -195,7 +195,7 @@ Each benchmark run must emit:
 
 - a raw per-point CSV with LF line endings
 - a summary table artifact
-- a reproducible description of the oracle used for exact ground truth
+- a reproducible description of the exact ground-truth source used in the run
 - the exact comparator list used in the run
 - the declared computational horizon for rank error
 - an environment manifest sufficient to reproduce the run in the same software stack

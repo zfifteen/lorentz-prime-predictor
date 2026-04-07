@@ -4,7 +4,9 @@ This document records what has and has not been validated in the repository at t
 
 ## Current State
 
-The repository now has a minimal reference implementation and direct API tests, but it is still pre-benchmark and pre-validation as a comparative result.
+The repository now has a minimal reference implementation, direct API tests, an exact shipped contract grid, and an exact adversarial benchmark program with completed scaling stages through `stage_b`.
+
+The active local workflow in this repository does not invoke `primecount`. Exact datasets are treated as committed artifacts, and local prediction work should use the workspace Z5D C implementation.
 
 What is currently complete:
 
@@ -27,6 +29,7 @@ What is not yet complete:
 - rank-error reporting
 - sensitivity tables
 - timing harness
+- the final exact `stage_c` scaling dataset
 
 ## Status Table
 
@@ -43,11 +46,12 @@ What is not yet complete:
 | Direct API tests | complete | Public API and CLI smoke tests exist under `tests/python/`. |
 | Test suite | in progress | Direct tests exist, but the broader semantic suite from the plan is not built yet. |
 | Comparator harness | complete | The off-lattice benchmark module implements the declared point-estimate comparator set for the exact held-out harness. |
-| Exact contract-grid oracle | complete | The shipped $10^0,\dots,10^{24}$ grid is committed in `data/KNOWN_PRIMES.md`; `primecount 8.4` is the declared generation and verification oracle for this shipped grid. |
-| Exact benchmark oracle beyond shipped grid | complete on $10^4,\dots,10^{12}$ | `primecount 8.4` is the declared generation and verification oracle for the committed held-out adversarial dataset on this exact horizon. |
+| Exact contract-grid artifact | complete | The shipped $10^0,\dots,10^{24}$ grid is committed in `data/KNOWN_PRIMES.md` and consumed as a fixed exact artifact in local workflow. |
+| Exact benchmark artifact beyond shipped grid | complete on committed stages | The held-out adversarial datasets through `stage_b` are committed and consumed as fixed exact artifacts in local workflow. |
 | Calibration surface declaration | not started | Constants are named, but no calibration artifact exists in this repo. |
-| Held-out benchmark evaluation | complete for v1 adversarial families | Exact held-out off-lattice and boundary-window artifacts now exist on $10^4,\dots,10^{12}$. |
-| Visualization suite | complete for v1 adversarial families | Deterministic plots exist for family, boundary, and refinement behavior on the held-out harness. |
+| Held-out benchmark evaluation | complete for baseline and completed scaling stages | Exact adversarial artifacts now exist on $10^4,\dots,10^{12}$, $10^{13},10^{14}$, and $10^{15},10^{16}$. |
+| Visualization suite | complete for baseline and completed scaling stages | Deterministic plots exist for family, boundary, dense-window, and scaling behavior on the committed exact horizon. |
+| Scaling answer program | complete through `stage_b` | The stage-aware exact benchmark now produces a mechanical scaling conclusion on the committed exact horizon. |
 | Sensitivity analysis | not started | No $\pm 10\%$ constant perturbation tables exist yet. |
 | Cost measurement | not started | No timing harness or practicality evidence exists yet. |
 
@@ -61,20 +65,24 @@ At the current stage, the repository can support statements like:
 - "The repository contains a minimal Python implementation of `lpp_seed`, `lpp_refined_predictor`, and `get_version`."
 - "The shipped runtime and contract-grid dataset are exact on $n = 10^0,\dots,10^{24}$."
 - "The repository contains an exact held-out adversarial benchmark on $10^4,\dots,10^{12}$ for off-lattice and boundary-window families."
+- "The active local workflow in this repository does not require `primecount`."
+- "On the completed exact scaling stages through `stage_b`, `lpp_seed` does not retain the best worst-case seed ppm."
+- "On the completed exact scaling stages through `stage_b`, `li_inverse_seed` has the best worst-case, mean, and median seed ppm in every scaling-stage family."
 
 It cannot yet support statements like:
 
-- "The seed outperforms modern comparators."
+- "The seed outperforms modern comparators on the completed exact scaling horizon."
 - "The refined predictor is practically superior."
 - "The calibrated advantage is robust."
-- "The implementation reproduces the formula exactly."
+- "The implementation is asymptotically superior."
+- "The exact scaling answer is complete through `stage_c`."
 
 ## Next Validation Gates
 
 The next validation gates are:
 
 1. deepen the semantic test suite beyond the current direct API checks
-2. extend exact held-out evaluation beyond $10^{12}$ if a practical oracle path is chosen
+2. complete or replace the unfinished exact `stage_c` path
 3. add exact $\pi(x)$ support for rank-error reporting
 4. add sensitivity artifacts required by the protocol
 5. add timing artifacts required by the protocol

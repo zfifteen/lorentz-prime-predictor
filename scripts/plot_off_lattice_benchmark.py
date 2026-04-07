@@ -250,12 +250,13 @@ def main() -> int:
     _style()
     rows = _load_rows()
     summary = _load_summary()
+    present_stages = summary["stages"]
     outputs = [
         plot_stage_seed_max_ppm_by_family(summary),
         plot_stage_seed_mean_ppm_by_family(summary),
         plot_lpp_vs_best_classical_ratio(summary),
     ]
-    for stage_name in ["baseline", "stage_a", "stage_b", "stage_c"]:
+    for stage_name in present_stages:
         outputs.append(plot_boundary_window_signed_seed_error_lpp(rows, stage_name))
         if stage_name != "baseline":
             outputs.append(plot_dense_local_window_ranked_seed_ppm(rows, stage_name))

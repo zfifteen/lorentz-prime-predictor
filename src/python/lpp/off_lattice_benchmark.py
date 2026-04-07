@@ -602,6 +602,8 @@ def write_off_lattice_benchmark_artifacts(repo_root: Path, stage_names: list[str
 
     decision = summary["decision"]
     headline = _headline_for_conclusion(str(decision["conclusion"]))
+    stage_labels = [summary["stage_labels"][stage_name] for stage_name in summary["stages"]]
+    horizon_text = ", ".join(stage_labels)
     md_lines = [
         "# Off-Lattice Adversarial Benchmark",
         "",
@@ -609,7 +611,7 @@ def write_off_lattice_benchmark_artifacts(repo_root: Path, stage_names: list[str
         "",
         "## Exact Horizon",
         "",
-        "This benchmark now combines the baseline exact adversarial harness on $10^4 \\ldots 10^{12}$ with staged exact extensions through $10^{18}$.",
+        f"This benchmark combines the committed exact stages currently available in the repository: {horizon_text}.",
         "",
         "Implemented stages:",
         "",
@@ -705,7 +707,7 @@ def write_off_lattice_benchmark_artifacts(repo_root: Path, stage_names: list[str
             "",
         ]
     )
-    for stage_name in classification_stage_names():
+    for stage_name in decision["completed_stages"]:
         md_lines.extend(
             [
                 f"### Boundary Signed Error Heatmap: {stage_name}",

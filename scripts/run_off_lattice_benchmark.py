@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 
 
-def main() -> int:
+def main(argv: list[str]) -> int:
     repo_root = Path(__file__).resolve().parent.parent
     python_src = repo_root / "src" / "python"
     if str(python_src) not in sys.path:
@@ -12,7 +12,17 @@ def main() -> int:
 
     from lpp.off_lattice_benchmark import write_off_lattice_benchmark_artifacts
 
-    artifacts = write_off_lattice_benchmark_artifacts(repo_root)
+    stage_names: list[str] = []
+    args = argv[1:]
+    i = 0
+    while i < len(args):
+        if args[i] == "--stage":
+            stage_names.append(args[i + 1])
+            i += 2
+        else:
+            raise SystemExit("usage: run_off_lattice_benchmark.py [--stage NAME ...]")
+
+    artifacts = write_off_lattice_benchmark_artifacts(repo_root, stage_names or None)
     print(artifacts["csv"])
     print(artifacts["summary"])
     print(artifacts["markdown"])
@@ -20,4 +30,4 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(main(sys.argv))
