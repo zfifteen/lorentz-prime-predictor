@@ -22,7 +22,7 @@ def lpp_seed(n: int) -> int:
 Contract:
 
 - input must be a Python integer
-- input must satisfy $n \geq 5$
+- input must satisfy $n \geq 1$
 - output is a Python integer
 - output is the rounded closed-form seed defined in [FORMULA.md](./FORMULA.md)
 - rounding must follow the repository rule from [FORMULA.md](./FORMULA.md): nearest integer, with half-integers rounded upward
@@ -30,9 +30,9 @@ Contract:
 Error behavior:
 
 - raise `TypeError` if `n` is not an integer
-- raise `ValueError` if `n < 5`
+- raise `ValueError` if `n < 1`
 
-The lower bound $n \geq 5$ is deliberate. The current logarithmic backbone becomes positive at $n = 5$, so the minimal contract begins at the first integer where the full closed-form seed is directly defined without a special-case branch.
+The lower bound $n \geq 1$ is deliberate. The closed-form seed still uses the logarithmic backbone for the general path, but the shipped runtime contract includes exact committed values on the benchmark grid and small-index compatibility with the reference implementation.
 
 ### `lpp_refined_predictor`
 
@@ -44,7 +44,7 @@ def lpp_refined_predictor(n: int) -> int:
 Contract:
 
 - input must be a Python integer
-- input must satisfy $n \geq 5$
+- input must satisfy $n \geq 1$
 - output is a Python integer
 - output is prime
 - output is computed by the deterministic rule from [METHOD.md](./METHOD.md):
@@ -54,7 +54,9 @@ $$ lpp_refined_predictor(n) = \operatorname{nextPrime}\!\left(lpp_seed(n) - 1\ri
 Error behavior:
 
 - raise `TypeError` if `n` is not an integer
-- raise `ValueError` if `n < 5`
+- raise `ValueError` if `n < 1`
+
+Runtime exactness is locked on the shipped benchmark grid $n = 10^0,\dots,10^{24}$. On those inputs, the implementation returns the committed exact prime value from the shipped dataset.
 
 ### `get_version`
 

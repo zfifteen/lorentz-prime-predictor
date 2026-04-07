@@ -64,9 +64,21 @@ The suite should contain at least six deterministic families.
 
 A sparse exact grid used to verify that implementations reproduce expected results at known scales.
 
+The current shipped contract-grid horizon is
+
+$$ n = 10^0,\dots,10^{24}. $$
+
 ### Held-Out Off-Lattice Grid
 
 Deterministic checkpoints not used in parameter fitting, such as $2 \cdot 10^k, 3 \cdot 10^k, \ldots, 9 \cdot 10^k$. This is the core held-out scientific accuracy set.
+
+The first implemented held-out harness in this repository covers the exact range
+
+$$ 10^4 \leq n \leq 10^{12} $$
+
+on the family
+
+$$ n = m \cdot 10^k, \qquad m \in \{2,\dots,9\}, \; k \in \{4,\dots,12\}. $$
 
 ### Boundary Windows
 
@@ -75,6 +87,10 @@ For each declared decade boundary $10^k$ in the tested regime, evaluate the cont
 $$ [10^k - 128,\; 10^k + 128] $$
 
 when the lower endpoint is defined. These windows are deterministic and must be reported as their own family.
+
+The first implemented held-out harness also covers the exact range
+
+$$ [10^k - 128,\; 10^k + 128], \qquad k \in \{4,\dots,12\}. $$
 
 ### Tail Regime
 

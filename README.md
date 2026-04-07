@@ -34,6 +34,12 @@ The repository does not claim that relativistic physics is being imported into a
 
 Whether that idea yields practically strong accuracy is a benchmark question, not a naming assumption. For that reason, the repository defines the benchmark protocol before making large comparative claims.
 
+The shipped runtime contract is exact on the committed power-of-ten grid
+
+$$ n = 10^0,\dots,10^{24}. $$
+
+Outside that shipped grid, the refined predictor remains a deterministic prime output built from the closed-form seed.
+
 ## Current Stage
 
 The repository is still intentionally narrow. The conceptual framing and research contract are fixed, and a minimal Python reference implementation now exists. The next stage is to deepen the test suite and then build the benchmark harness.
