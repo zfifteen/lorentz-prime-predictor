@@ -97,7 +97,7 @@ COMPARATOR_SPECS = [
     },
     {
         "name": "li_inverse_seed",
-        "formula": r"\operatorname{li}^{-1}(n)",
+        "formula": r"li^{-1}(n)",
         "description": "Numerical inverse-log-integral seed.",
     },
     {
@@ -107,7 +107,7 @@ COMPARATOR_SPECS = [
     },
     {
         "name": "lpp_seed",
-        "formula": r"\operatorname{round}(P(n) + d(n) + e(n))",
+        "formula": r"round(P(n) + d(n) + e(n))",
         "description": "Lorentz Prime Predictor seed.",
     },
 ]
