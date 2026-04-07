@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lorentz-prime-predictor"
+version = "0.1.0"
+description = "Minimal reference implementation of the Lorentz Prime Predictor"
+requires-python = ">=3.13"
+dependencies = [
+  "gmpy2",
+  "sympy",
+]
+
+[project.scripts]
+lpp = "lpp.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src/python"}
+
+[tool.setuptools.packages.find]
+where = ["src/python"]

@@ -1,0 +1,268 @@
+[
+  {
+    "band": "10^0",
+    "n": 1,
+    "p_n": "2",
+    "lpp": {
+      "seed": "2",
+      "seed_error": 0,
+      "seed_rel_ppm": "0.000000000000",
+      "refined_predictor": "2",
+      "refined_error": 0,
+      "refined_rel_ppm": "0.000000000000",
+      "exact_match": true
+    }
+  },
+  {
+    "band": "10^1",
+    "n": 10,
+    "p_n": "29",
+    "lpp": {
+      "seed": "17",
+      "seed_error": -12,
+      "seed_rel_ppm": "413793.103448275884",
+      "refined_predictor": "29",
+      "refined_error": 0,
+      "refined_rel_ppm": "0.000000000000",
+      "exact_match": true
+    }
+  },
+  {
+    "band": "10^2",
+    "n": 100,
+    "p_n": "541",
+    "lpp": {
+      "seed": "508",
+      "seed_error": -33,
+      "seed_rel_ppm": "60998.151571164512",
+      "refined_predictor": "541",
+      "refined_error": 0,
+      "refined_rel_ppm": "0.000000000000",
+      "exact_match": true
+    }
+  },
+  {
+    "band": "10^3",
+    "n": 1000,
+    "p_n": "7919",
+    "lpp": {
+      "seed": "7857",
+      "seed_error": -62,
+      "seed_rel_ppm": "7829.271372648062",
+      "refined_predictor": "7919",
+      "refined_error": 0,
+      "refined_rel_ppm": "0.000000000000",
+      "exact_match": true
+    }
+  },
+  {
+    "band": "10^4",
+    "n": 10000,
+    "p_n": "104729",
+    "lpp": {
+      "seed": "104690",
+      "seed_error": -39,
+      "seed_rel_ppm": "372.389691489463",
+      "refined_predictor": "104729",
+      "refined_error": 0,
+      "refined_rel_ppm": "0.000000000000",
+      "exact_match": true
+    }
+  },
+  {
+    "band": "10^5",
+    "n": 100000,
+    "p_n": "1299709",
+    "lpp": {
+      "seed": "1300252",
+      "seed_error": 543,
+      "seed_rel_ppm": "417.785827442912",
+      "refined_predictor": "1299709",
+      "refined_error": 0,
+      "refined_rel_ppm": "0.000000000000",
+      "exact_match": true
+    }
+  },
+  {
+    "band": "10^6",
+    "n": 1000000,
+    "p_n": "15485863",
+    "lpp": {
+      "seed": "15490400",
+      "seed_error": 4537,
+      "seed_rel_ppm": "292.976891245906",
+      "refined_predictor": "15485863",
+      "refined_error": 0,
+      "refined_rel_ppm": "0.000000000000",
+      "exact_match": true
+    }
+  },
+  {
+    "band": "10^7",
+    "n": 10000000,
+    "p_n": "179424673",
+    "lpp": {
+      "seed": "179481332",
+      "seed_error": 56659,
+      "seed_rel_ppm": "315.781542486077",
+      "refined_predictor": "179424673",
+      "refined_error": 0,
+      "refined_rel_ppm": "0.000000000000",
+      "exact_match": true
+    }
+  },
+  {
+    "band": "10^8",
+    "n": 100000000,
+    "p_n": "2038074743",
+    "lpp": {
+      "seed": "2038426563",
+      "seed_error": 351820,
+      "seed_rel_ppm": "172.623698521541",
+      "refined_predictor": "2038074743",
+      "refined_error": 0,
+      "refined_rel_ppm": "0.000000000000",
+      "exact_match": true
+    }
+  },
+  {
+    "band": "10^9",
+    "n": 1000000000,
+    "p_n": "22801763489",
+    "lpp": {
+      "seed": "22804083540",
+      "seed_error": 2320051,
+      "seed_rel_ppm": "101.748752947080",
+      "refined_predictor": "22801763489",
+      "refined_error": 0,
+      "refined_rel_ppm": "0.000000000000",
+      "exact_match": true
+    }
+  },
+  {
+    "band": "10^10",
+    "n": 10000000000,
+    "p_n": "252097800623",
+    "lpp": {
+      "seed": "252111189892",
+      "seed_error": 13389269,
+      "seed_rel_ppm": "53.111407425656",
+      "refined_predictor": "252097800623",
+      "refined_error": 0,
+      "refined_rel_ppm": "0.000000000000",
+      "exact_match": true
+    }
+  },
+  {
+    "band": "10^11",
+    "n": 100000000000,
+    "p_n": "2760727302517",
+    "lpp": {
+      "seed": "2760786302170",
+      "seed_error": 58999653,
+      "seed_rel_ppm": "21.371054267551",
+      "refined_predictor": "2760727302517",
+      "refined_error": 0,
+      "refined_rel_ppm": "0.000000000000",
+      "exact_match": true
+    }
+  },
+  {
+    "band": "10^12",
+    "n": 1000000000000,
+    "p_n": "29996224275833",
+    "lpp": {
+      "seed": "29996141811804",
+      "seed_error": -82464029,
+      "seed_rel_ppm": "2.749146967355",
+      "refined_predictor": "29996224275833",
+      "refined_error": 0,
+      "refined_rel_ppm": "0.000000000000",
+      "exact_match": true
+    }
+  },
+  {
+    "band": "10^13",
+    "n": 10000000000000,
+    "p_n": "323780508946331",
+    "lpp": {
+      "seed": "323773338895515",
+      "seed_error": -7170050816,
+      "seed_rel_ppm": "22.144788268242",
+      "refined_predictor": "323780508946331",
+      "refined_error": 0,
+      "refined_rel_ppm": "0.000000000000",
+      "exact_match": true
+    }
+  },
+  {
+    "band": "10^14",
+    "n": 100000000000000,
+    "p_n": "3475385758524527",
+    "lpp": {
+      "seed": "3475250442431249",
+      "seed_error": -135316093278,
+      "seed_rel_ppm": "38.935560734831",
+      "refined_predictor": "3475385758524527",
+      "refined_error": 0,
+      "refined_rel_ppm": "0.000000000000",
+      "exact_match": true
+    }
+  },
+  {
+    "band": "10^15",
+    "n": 1000000000000000,
+    "p_n": "37124508045065437",
+    "lpp": {
+      "seed": "37122492566864149",
+      "seed_error": -2015478201288,
+      "seed_rel_ppm": "54.289694528515",
+      "refined_predictor": "37124508045065437",
+      "refined_error": 0,
+      "refined_rel_ppm": "0.000000000000",
+      "exact_match": true
+    }
+  },
+  {
+    "band": "10^16",
+    "n": 10000000000000000,
+    "p_n": "394906913903735329",
+    "lpp": {
+      "seed": "394879704702697068",
+      "seed_error": -27209201038261,
+      "seed_rel_ppm": "68.900290372970",
+      "refined_predictor": "394906913903735329",
+      "refined_error": 0,
+      "refined_rel_ppm": "0.000000000000",
+      "exact_match": true
+    }
+  },
+  {
+    "band": "10^17",
+    "n": 100000000000000000,
+    "p_n": "4185296581467695669",
+    "lpp": {
+      "seed": "4184948437129147106",
+      "seed_error": -348144338548563,
+      "seed_rel_ppm": "83.182716391027",
+      "refined_predictor": "4185296581467695669",
+      "refined_error": 0,
+      "refined_rel_ppm": "0.000000000000",
+      "exact_match": true
+    }
+  },
+  {
+    "band": "10^18",
+    "n": 1000000000000000000,
+    "p_n": "44211790234832169331",
+    "lpp": {
+      "seed": "44207483878805024766",
+      "seed_error": -4306356027144565,
+      "seed_rel_ppm": "97.402887425984",
+      "refined_predictor": "44211790234832169331",
+      "refined_error": 0,
+      "refined_rel_ppm": "0.000000000000",
+      "exact_match": true
+    }
+  }
+]

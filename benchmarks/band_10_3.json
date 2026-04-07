@@ -1,0 +1,14 @@
+{
+  "band": "10^3",
+  "n": 1000,
+  "p_n": "7919",
+  "lpp": {
+    "seed": "7857",
+    "seed_error": -62,
+    "seed_rel_ppm": "7829.271372648062",
+    "refined_predictor": "7919",
+    "refined_error": 0,
+    "refined_rel_ppm": "0.000000000000",
+    "exact_match": true
+  }
+}
