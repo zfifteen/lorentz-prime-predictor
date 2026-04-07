@@ -4,6 +4,7 @@ import subprocess
 import sys
 import unittest
 from pathlib import Path
+from importlib import util
 
 from sympy import isprime
 
@@ -11,6 +12,18 @@ from lpp import get_version, lpp_refined_predictor, lpp_seed
 
 
 ROOT = Path(__file__).resolve().parents[2]
+REFERENCE_REPO = Path("/Users/velocityworks/IdeaProjects/archive/z5d-prime-predictor")
+REFERENCE_PREDICTOR = REFERENCE_REPO / "src/python/z5d_predictor/predictor.py"
+
+
+def _load_reference_module():
+    spec = util.spec_from_file_location("z5d_reference_predictor", REFERENCE_PREDICTOR)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"could not load reference predictor from {REFERENCE_PREDICTOR}")
+    module = util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+    return module
 
 
 class LPPTests(unittest.TestCase):
@@ -26,21 +39,12 @@ class LPPTests(unittest.TestCase):
         self.assertEqual(lpp_seed(100), 508)
         self.assertEqual(lpp_seed(1000), 7857)
 
-    def test_seed_matches_reference_precision_at_canonical_points(self) -> None:
-        expected = {
-            10: 17,
-            100: 508,
-            1000: 7857,
-            10000: 104690,
-            100000: 1300252,
-            1000000: 15490400,
-            10000000: 179481332,
-            100000000: 2038426563,
-            1000000000: 22804083540,
-        }
-        for n, value in expected.items():
+    def test_seed_matches_reference_closed_form_on_legacy_regime(self) -> None:
+        reference = _load_reference_module()
+        for exponent in range(1, 18):
+            n = 10**exponent
             with self.subTest(n=n):
-                self.assertEqual(lpp_seed(n), value)
+                self.assertEqual(lpp_seed(n), int(reference.closed_form_estimate(n)))
 
     def test_refined_output_is_prime(self) -> None:
         value = lpp_refined_predictor(1000)
@@ -57,6 +61,12 @@ class LPPTests(unittest.TestCase):
             10000: 104729,
             100000: 1299709,
             1000000: 15485863,
+            10000000000000000000: 465675465116607065549,
+            100000000000000000000: 4892055594575155744537,
+            1000000000000000000000: 51271091498016403471853,
+            10000000000000000000000: 536193870744162118627429,
+            100000000000000000000000: 5596564467986980643073683,
+            1000000000000000000000000: 58310039994836584070534263,
         }
         for n, value in expected.items():
             with self.subTest(n=n):

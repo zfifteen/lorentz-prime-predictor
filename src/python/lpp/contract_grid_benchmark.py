@@ -130,7 +130,7 @@ def write_contract_grid_artifacts(repo_root: Path, output_dir: Path | None = Non
     md_lines = [
         "# Contract Grid Benchmark",
         "",
-        "Exact contract result: `lpp_refined_predictor(n)` matches the deterministic ground-truth grid at every declared band from $10^0$ through $10^{18}$.",
+        "Exact contract result: `lpp_refined_predictor(n)` matches the deterministic ground-truth grid at every declared band from $10^0$ through $10^{24}$.",
         "",
         "## Summary",
         "",
@@ -157,7 +157,7 @@ def write_contract_grid_artifacts(repo_root: Path, output_dir: Path | None = Non
             "",
             f"- CSV: `{csv_path.name}`",
             f"- Summary JSON: `{summary_path.name}`",
-            "- Per-band JSON: `band_10_0.json` through `band_10_18.json`",
+            "- Per-band JSON: `band_10_0.json` through `band_10_24.json`",
         ]
     )
     md_path.write_text("\n".join(md_lines) + "\n")
