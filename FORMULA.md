@@ -2,7 +2,7 @@
 
 This document defines the closed-form seed of the Lorentz Prime Predictor. The deterministic forward step that turns the seed into a prime output is defined separately in [METHOD.md](./METHOD.md).
 
-In this repository, the seed contract begins at $n \geq 2$.
+In this repository, the seed contract begins at $n \geq 5$.
 
 The asymptotic backbone is
 

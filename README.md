@@ -36,4 +36,4 @@ Whether that idea yields practically strong accuracy is a benchmark question, no
 
 ## Current Stage
 
-The repository is still intentionally narrow. The conceptual framing and research contract are now fixed. The next stage is the minimal Python reference implementation, followed by direct tests and the benchmark harness.
+The repository is still intentionally narrow. The conceptual framing and research contract are fixed, and a minimal Python reference implementation now exists. The next stage is to deepen the test suite and then build the benchmark harness.

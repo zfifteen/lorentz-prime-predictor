@@ -22,7 +22,7 @@ def lpp_seed(n: int) -> int:
 Contract:
 
 - input must be a Python integer
-- input must satisfy $n \geq 2$
+- input must satisfy $n \geq 5$
 - output is a Python integer
 - output is the rounded closed-form seed defined in [FORMULA.md](./FORMULA.md)
 - rounding must follow the repository rule from [FORMULA.md](./FORMULA.md): nearest integer, with half-integers rounded upward
@@ -30,9 +30,9 @@ Contract:
 Error behavior:
 
 - raise `TypeError` if `n` is not an integer
-- raise `ValueError` if `n < 2`
+- raise `ValueError` if `n < 5`
 
-The lower bound $n \geq 2$ is deliberate. The current seed is logarithmic, so the minimal contract begins at the first integer where the closed-form expression is directly defined.
+The lower bound $n \geq 5$ is deliberate. The current logarithmic backbone becomes positive at $n = 5$, so the minimal contract begins at the first integer where the full closed-form seed is directly defined without a special-case branch.
 
 ### `lpp_refined_predictor`
 
@@ -44,7 +44,7 @@ def lpp_refined_predictor(n: int) -> int:
 Contract:
 
 - input must be a Python integer
-- input must satisfy $n \geq 2$
+- input must satisfy $n \geq 5$
 - output is a Python integer
 - output is prime
 - output is computed by the deterministic rule from [METHOD.md](./METHOD.md):
@@ -54,7 +54,7 @@ $$ lpp_refined_predictor(n) = \operatorname{nextPrime}\!\left(lpp_seed(n) - 1\ri
 Error behavior:
 
 - raise `TypeError` if `n` is not an integer
-- raise `ValueError` if `n < 2`
+- raise `ValueError` if `n < 5`
 
 ### `get_version`
 
