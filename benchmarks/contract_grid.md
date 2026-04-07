@@ -1,11 +1,11 @@
 # Contract Grid Benchmark
 
-Exact contract result: `lpp_refined_predictor(n)` matches the deterministic ground-truth grid at every declared band from $10^0$ through $10^{18}$.
+Exact contract result: `lpp_refined_predictor(n)` matches the deterministic ground-truth grid at every declared band from $10^0$ through $10^{24}$.
 
 ## Summary
 
-- bands evaluated: 19
-- refined exact matches: 19/19
+- bands evaluated: 25
+- refined exact matches: 25/25
 - max refined ppm: 0.000000000000
 - max seed ppm: 413793.103448275884
 
@@ -21,4 +21,4 @@ Exact contract result: `lpp_refined_predictor(n)` matches the deterministic grou
 
 - CSV: `contract_grid.csv`
 - Summary JSON: `summary_bands.json`
-- Per-band JSON: `band_10_0.json` through `band_10_18.json`
+- Per-band JSON: `band_10_0.json` through `band_10_24.json`
