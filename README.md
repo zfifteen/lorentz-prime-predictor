@@ -21,6 +21,13 @@ The seed and the refined predictor are separate estimands. Closed-form accuracy 
 - [METHOD.md](./METHOD.md): the distinction between the seed and the refined predictor
 - [BENCHMARK_PROTOCOL.md](./BENCHMARK_PROTOCOL.md): the deterministic rules for comparison, artifacts, and claim language
 
+## Research Contract Documents
+
+- [CLAIMS.md](./CLAIMS.md): the exact claim boundary for public repository language
+- [REFERENCES.md](./REFERENCES.md): the primary citation targets for formulas, comparators, and exact oracles
+- [VALIDATION_STATUS.md](./VALIDATION_STATUS.md): what is and is not validated in the repository at the current stage
+- [API.md](./API.md): the intended minimal Python and CLI contract for the reference implementation
+
 ## Scientific Position
 
 The repository does not claim that relativistic physics is being imported into arithmetic as physics. The narrower claim is structural: invariant-normalized measurement suggests a useful way to organize nth-prime estimation.
@@ -29,4 +36,4 @@ Whether that idea yields practically strong accuracy is a benchmark question, no
 
 ## Current Stage
 
-The repository is still intentionally narrow. The conceptual framing, formula, method, and benchmark contract are fixed first. Claims, references, validation status, and code follow only after those foundations are stable.
+The repository is still intentionally narrow. The conceptual framing and research contract are now fixed. The next stage is the minimal Python reference implementation, followed by direct tests and the benchmark harness.

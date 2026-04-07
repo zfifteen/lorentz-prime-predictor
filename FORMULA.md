@@ -2,6 +2,8 @@
 
 This document defines the closed-form seed of the Lorentz Prime Predictor. The deterministic forward step that turns the seed into a prime output is defined separately in [METHOD.md](./METHOD.md).
 
+In this repository, the seed contract begins at $n \geq 2$.
+
 The asymptotic backbone is
 
 $$ P(n) = n\left(\ln n + \ln\ln n - 1 + \frac{\ln\ln n - 2}{\ln n}\right) $$
@@ -15,6 +17,8 @@ $$ e(n) = \kappa^* P(n)^{2/3} $$
 The closed-form seed is
 
 $$ \widehat{p}_n = \operatorname{round}\!\left(P(n) + d(n) + e(n)\right) $$
+
+Here $\operatorname{round}(x)$ means nearest-integer rounding with half-integers rounded upward. Since the predictor is evaluated only for positive $n$, this is the same as $\lfloor x + 1/2 \rfloor$.
 
 The current working constants are
 

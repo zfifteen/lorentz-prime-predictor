@@ -6,7 +6,7 @@ The Lorentz Prime Predictor defines two related objects, and this repository kee
 
 $$ lpp_seed(n) = \widehat{p}_n $$
 
-`lpp_seed` is the analytic object defined in [FORMULA.md](./FORMULA.md). It returns an integer estimate for the $n$th prime.
+`lpp_seed` is the analytic object defined in [FORMULA.md](./FORMULA.md). It returns an integer estimate for the $n$th prime for $n \geq 2$.
 
 This is the correct object for direct comparison against other closed-form nth-prime formulas. When the question is formula accuracy, the seed is the estimand.
 
@@ -14,7 +14,7 @@ This is the correct object for direct comparison against other closed-form nth-p
 
 $$ lpp_refined_predictor(n) = \operatorname{nextPrime}\!\left(\widehat{p}_n - 1\right) $$
 
-`lpp_refined_predictor` starts at the seed and moves forward deterministically until a prime output is reached.
+`lpp_refined_predictor` starts at the seed and moves forward deterministically until a prime output is reached, again for $n \geq 2$.
 
 This answers a different question. It measures whether the seed is a useful launch point for a practical prime-returning method, not only whether the closed-form expression lands near $p_n$.
 
