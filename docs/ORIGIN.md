@@ -8,7 +8,7 @@ $$ \beta = \frac{v}{c} $$
 
 Once motion is written that way, the Lorentz transform relates what different observers measure:
 
-$$ x' = \gamma(x - vt), \qquad t' = \gamma\left(t - \frac{vx}{c^2}\right), \qquad \gamma = \frac{1}{\sqrt{1-\beta^2}} $$
+$$ x' = \gamma(x - vt),\ t' = \gamma\left(t - \frac{vx}{c^2}\right),\ \gamma = \frac{1}{\sqrt{1-\beta^2}} $$
 
 The point carried into this repository is not the whole apparatus of relativity. It is the measurement discipline behind it. A state becomes more informative when it is described relative to an invariant scale instead of by raw magnitude alone.
 

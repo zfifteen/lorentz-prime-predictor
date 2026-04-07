@@ -6,15 +6,11 @@ This document answers the main scaling question on the reproducible exact advers
 
 The best current reproducible exact answer is:
 
-$$
-\text{the LPP seed advantage does not survive the completed scaling stages.}
-$$
+`the LPP seed advantage does not survive the completed scaling stages.`
 
 That statement is reproducible exact and bounded. It applies only to the committed completed horizon:
 
-$$
-10^4 \ldots 10^{12}, \qquad 10^{13} \ldots 10^{14}, \qquad 10^{15} \ldots 10^{16}.
-$$
+$10^4 \ldots 10^{12}$, $10^{13} \ldots 10^{14}$, and $10^{15} \ldots 10^{16}$.
 
 It does not say anything beyond that horizon.
 
@@ -104,13 +100,7 @@ The cleanest reading of the current evidence is:
 
 ## Local Stage C Continuation
 
-The repository now also has a local continuation stage on
-
-$$
-10^{17} \ldots 10^{18}
-$$
-
-where the label source is the declared local continuation source rather than a committed exact external dataset.
+The repository now also has a local continuation stage on $10^{17} \ldots 10^{18}$, where the label source is the declared local continuation source rather than a committed exact external dataset.
 
 On that local stage:
 

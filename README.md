@@ -62,11 +62,7 @@ The repository is still intentionally narrow. The conceptual framing and researc
 
 ## Best Current Reproducible Exact Answer
 
-The strongest reproducible exact answer currently supported by this repository is:
-
-$$
-\text{No.}
-$$
+The strongest reproducible exact answer currently supported by this repository is: **No.**
 
 On the completed reproducible exact scaling stages now committed in the repository, `lpp_seed` does **not** retain the best worst-case seed ppm once the horizon rises past the original $10^4 \ldots 10^{12}$ benchmark.
 
@@ -79,9 +75,7 @@ On the completed reproducible exact scaling stages now committed in the reposito
 
 The completed reproducible exact horizon currently available for this answer is:
 
-$$
-10^4 \ldots 10^{12}, \qquad 10^{13} \ldots 10^{14}, \qquad 10^{15} \ldots 10^{16}.
-$$
+$10^4 \ldots 10^{12}$, $10^{13} \ldots 10^{14}$, and $10^{15} \ldots 10^{16}$.
 
 The direct benchmark artifacts are:
 
@@ -95,13 +89,7 @@ The lead figure is:
 
 ## Local Continuation
 
-The repository now also contains a local `stage_c` continuation on
-
-$$
-10^{17} \ldots 10^{18}
-$$
-
-using the declared local continuation source for that stage.
+The repository now also contains a local `stage_c` continuation on $10^{17} \ldots 10^{18}$ using the declared local continuation source for that stage.
 
 That continuation is not an exact external-label stage. It is a local continuation used to keep the scaling workflow moving locally.
 

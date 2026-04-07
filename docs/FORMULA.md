@@ -10,19 +10,19 @@ $$ P(n) = n\left(\ln n + \ln\ln n - 1 + \frac{\ln\ln n - 2}{\ln n}\right) $$
 
 The predictor then applies two calibrated corrections:
 
-$$ d(n) = c\,P(n)\left(\frac{\ln P(n)}{e^4}\right)^2 $$
+$$ d(n) = c P(n)\left(\frac{\ln P(n)}{e^4}\right)^2 $$
 
 $$ e(n) = \kappa^* P(n)^{2/3} $$
 
 The closed-form seed is
 
-$$ \widehat{p}_n = \operatorname{round}\!\left(P(n) + d(n) + e(n)\right) $$
+$$ \widehat{p}_n = round(P(n) + d(n) + e(n)) $$
 
-Here $\operatorname{round}(x)$ means nearest-integer rounding with half-integers rounded upward. Since the predictor is evaluated only for positive $n$, this is the same as $\lfloor x + 1/2 \rfloor$.
+Here $round(x)$ means nearest-integer rounding with half-integers rounded upward. Since the predictor is evaluated only for positive $n$, this is the same as $\lfloor x + 1/2 \rfloor$.
 
 The current working constants are
 
-$$ c = -0.00016667, \qquad \kappa^* = 0.065 $$
+$$ c = -0.00016667,\ \kappa^* = 0.065 $$
 
 ## Interpretation of the Terms
 
@@ -34,13 +34,13 @@ $e(n)$ is a positive sublinear lift. Because it grows like $P(n)^{2/3}$, it is l
 
 Taken together, the seed has the form
 
-$$ \text{backbone} + \text{negative logarithmic correction} + \text{positive sublinear lift} $$
+`backbone + negative logarithmic correction + positive sublinear lift`
 
 ## Compact Seed Form
 
 Using the shorthand $P(n)$, the seed can be written in one display as
 
-$$ \widehat{p}_n = \operatorname{round}\!\left(n\left(\ln n + \ln\ln n - 1 + \frac{\ln\ln n - 2}{\ln n}\right) + c\,P(n)\left(\frac{\ln P(n)}{e^4}\right)^2 + \kappa^* P(n)^{2/3}\right) $$
+$$ \widehat{p}_n = round\left(n\left(\ln n + \ln\ln n - 1 + \frac{\ln\ln n - 2}{\ln n}\right) + c P(n)\left(\frac{\ln P(n)}{e^4}\right)^2 + \kappa^* P(n)^{2/3}\right) $$
 
 ## Naming
 

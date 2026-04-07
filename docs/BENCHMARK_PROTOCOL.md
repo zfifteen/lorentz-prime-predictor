@@ -34,7 +34,7 @@ The minimum literature comparison set is:
 - two-term PNT correction: $n(\log n + \log\log n - 1)$
 - Cipolla through the $1/\log n$ term
 - Cipolla through the $1/\log^2 n$ term
-- inverse logarithmic integral seed: $\operatorname{li}^{-1}(n)$
+- inverse logarithmic integral seed: $li^{-1}(n)$
 - at least one modern explicit practical comparator from Axler or Dusart, with exact source citation and validity regime declared before evaluation
 
 If a cited Axler- or Dusart-derived object is a bound rather than a point estimate, it must be reported in a separate bound-validity table and not folded into seed ppm rankings.
@@ -85,19 +85,19 @@ $$ 10^4 \leq n \leq 10^{12} $$
 
 on the family
 
-$$ n = m \cdot 10^k, \qquad m \in \{2,\dots,9\}, \; k \in \{4,\dots,12\}. $$
+$$ n = m \cdot 10^k,\ m \in \{2,\dots,9\},\ k \in \{4,\dots,12\}. $$
 
 ### Boundary Windows
 
 For each declared decade boundary $10^k$ in the tested regime, evaluate the contiguous window
 
-$$ [10^k - 128,\; 10^k + 128] $$
+$$ [10^k - 128,\ 10^k + 128] $$
 
 when the lower endpoint is defined. These windows are deterministic and must be reported as their own family.
 
 The first implemented held-out harness also covers the exact range
 
-$$ [10^k - 128,\; 10^k + 128], \qquad k \in \{4,\dots,12\}. $$
+$$ [10^k - 128,\ 10^k + 128],\ k \in \{4,\dots,12\}. $$
 
 ### Tail Regime
 
@@ -107,7 +107,7 @@ Large exact checkpoints selected before evaluation and reported separately. A me
 
 For each declared interval $[a,b]$, evaluate the deterministic lattice
 
-$$ n_j = \left\lfloor a + \frac{j(b-a)}{m-1} \right\rfloor, \qquad j = 0,1,\ldots,m-1 $$
+$$ n_j = \lfloor a + \frac{j(b-a)}{m-1} \rfloor,\ j = 0,1,\ldots,m-1 $$
 
 with duplicates removed after construction. The repository default is $m = 1024$ per interval. Mean and median ppm claims should rely on this family or another deterministic family of comparable density, not on sparse landmark grids alone.
 

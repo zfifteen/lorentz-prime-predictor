@@ -14,15 +14,11 @@ On `stage_a` and `stage_b`, `li_inverse_seed` has the best worst-case, mean, and
 
 That means the current best exact reading is not:
 
-$$
-\text{LPP found a stronger seed law that keeps beating the classical seeds as the horizon rises.}
-$$
+LPP found a stronger seed law that keeps beating the classical seeds as the horizon rises.
 
 The current best reproducible exact reading is:
 
-$$
-\text{LPP was unusually strong on the baseline regime, but the deeper completed exact stages favor } \operatorname{li}^{-1}(n).
-$$
+LPP was unusually strong on the baseline regime, but the deeper completed exact stages favor $li^{-1}(n)$.
 
 ## Replacement For The Old Stage C Path
 
@@ -74,27 +70,23 @@ But the completed deeper reproducible exact stages suggest that these two fixed 
 The most natural reading is:
 
 - the LPP corrections improved the backbone in a finite regime
-- that improvement was not stable enough to beat `\operatorname{li}^{-1}(n)` on the deeper completed reproducible exact stages
+- that improvement was not stable enough to beat $li^{-1}(n)$ on the deeper completed reproducible exact stages
 
 ## What Is Still Unproved
 
 These results do not prove an asymptotic law either way.
 
 They do not prove that LPP must always lose beyond the completed stages.
-They do not prove that `\operatorname{li}^{-1}(n)` is universally best in every possible benchmark family.
-They do not derive the LPP terms from RH, $\pi(x)-\operatorname{li}(x)$, or any explicit theorem in the repository.
+They do not prove that $li^{-1}(n)$ is universally best in every possible benchmark family.
+They do not derive the LPP terms from RH, $\pi(x) - li(x)$, or any explicit theorem in the repository.
 
 They do show something narrower and important:
 
-$$
-\text{the strongest current reproducible exact evidence no longer supports the claim that the present LPP seed architecture scales best.}
-$$
+The strongest current reproducible exact evidence no longer supports the claim that the present LPP seed architecture scales best.
 
 The new local continuation shows something different and also important:
 
-$$
-\text{when the local stage is labeled by its declared local continuation source, the local continuation strongly favors LPP.}
-$$
+When the local stage is labeled by its declared local continuation source, the local continuation strongly favors LPP.
 
 That tells us the current LPP structure is much closer to the local continuation than it is to the inverse-log-integral seed on that stage.
 

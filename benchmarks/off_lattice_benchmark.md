@@ -16,7 +16,7 @@ Implemented stages:
 Families:
 
 - `off_lattice_decimal`: $m \cdot 10^k$ with $m = 2,\dots,9$
-- `boundary_window`: all integers in $[10^k - 128,\; 10^k + 128]$
+- `boundary_window`: all integers in $[10^k - 128,\ 10^k + 128]$
 - `dense_local_window`: deterministic local sweeps of length $1024$ at lower, middle, and upper locations inside each new stage exponent
 
 ## Mechanical Conclusion

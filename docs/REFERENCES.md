@@ -32,7 +32,7 @@ Cipolla is the classical nth-prime asymptotic source. Salvy and Panaitopol are t
 
 This is the main comparator spine for future benchmark tables. If the repository reports a modern explicit practical comparator, the exact comparator should cite one or more of these sources directly.
 
-If the repository later implements a specific numerical scheme for the $\operatorname{li}^{-1}(n)$ comparator, that implementation should add its exact method citation in the benchmark artifact or implementation notes rather than assuming this baseline list is already specific enough.
+If the repository later implements a specific numerical scheme for the $li^{-1}(n)$ comparator, that implementation should add its exact method citation in the benchmark artifact or implementation notes rather than assuming this baseline list is already specific enough.
 
 ## Exact Prime-Counting Literature
 

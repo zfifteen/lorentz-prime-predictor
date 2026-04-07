@@ -49,7 +49,7 @@ Contract:
 - output is prime
 - output is computed by the deterministic rule from [METHOD.md](./METHOD.md):
 
-$$ lpp_refined_predictor(n) = \operatorname{nextPrime}\!\left(lpp_seed(n) - 1\right) $$
+$$ lpp_refined_predictor(n) = nextPrime(lpp_seed(n) - 1) $$
 
 Error behavior:
 

@@ -12,7 +12,7 @@ This is the correct object for direct comparison against other closed-form nth-p
 
 ## Refined Predictor
 
-$$ lpp_refined_predictor(n) = \operatorname{nextPrime}\!\left(\widehat{p}_n - 1\right) $$
+$$ lpp_refined_predictor(n) = nextPrime(\widehat{p}_n - 1) $$
 
 `lpp_refined_predictor` starts at the seed and moves forward deterministically until a prime output is reached, again for $n \geq 5$.
 
