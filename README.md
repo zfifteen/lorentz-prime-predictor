@@ -14,11 +14,14 @@ This repository defines three public objects:
 
 The seed and the refined predictor are separate estimands. Closed-form accuracy claims belong to `lpp_seed`. Prime-output utility claims belong to `lpp_refined_predictor`.
 
+The repository also tracks benchmark candidates from multiple categories. The current category split is summarized in [CANDIDATE_CATEGORIES.md](./docs/CANDIDATE_CATEGORIES.md).
+
 ## Foundational Documents
 
 - [ORIGIN.md](./docs/ORIGIN.md): the Lorentz inspiration and the invariant-normalization bridge into number theory
 - [FORMULA.md](./docs/FORMULA.md): the closed-form seed, its constants, and the role of each term
 - [METHOD.md](./docs/METHOD.md): the distinction between the seed and the refined predictor
+- [CANDIDATE_CATEGORIES.md](./docs/CANDIDATE_CATEGORIES.md): the current leaders by category
 - [BENCHMARK_PROTOCOL.md](./docs/BENCHMARK_PROTOCOL.md): the deterministic rules for comparison, artifacts, and claim language
 
 ## Research Contract Documents

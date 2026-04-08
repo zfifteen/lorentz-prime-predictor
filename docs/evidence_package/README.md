@@ -10,6 +10,8 @@ That requirement is stricter than "find the most accurate formula." A candidate 
 
 This package collects the evidence that has already been generated in this repository and states the current boundary through exact `10^18`.
 
+This package is the record of the closed-form seed search thread. The deterministic inversion category is now tracked separately in [benchmarks/r_inverse_probe/README.md](../../benchmarks/r_inverse_probe/README.md).
+
 ## Boundaries, Requirements, and Constraints
 
 - No heuristic coefficients.
