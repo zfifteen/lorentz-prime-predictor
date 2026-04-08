@@ -1,75 +1,49 @@
 # Lorentz Prime Predictor
 
-The Lorentz Prime Predictor is a first-principles research program for estimating the $n$th prime. It starts from one measurement idea: a quantity often becomes more legible when it is expressed against a fixed limit rather than read in isolation.
+The Lorentz Prime Predictor is a research repo about one narrow question: how should we build a seed for the $n$th prime if we treat prime growth as something to be measured against a stable scale rather than read as raw magnitude alone?
 
-In relativity, that idea appears in the ratio $v/c$. In this repository, the same invariant-normalization logic is carried into number theory and tested under a deterministic benchmark protocol.
+In relativity, motion becomes more informative when it is written as $v/c$ instead of as a bare speed. This repository carries that same measurement instinct into number theory. The point is not that primes obey relativity as physics. The point is that invariant-normalized measurement may reveal cleaner structure in the problem of estimating $p_n$.
 
-## Current Decisions
+That idea led to two different lines of work.
 
-The repository currently keeps one retained leader in each of two seed categories:
+One line stayed in closed form. It asked for the strongest fully derived algebraic seed we could defend without smuggling in chosen constants. The best result from that line is `cipolla_log5_repacked`. It is the strongest retained closed-form seed in the repository. On the exact benchmark suite, it stays ahead of `li_inverse_seed` through exact `10^16`, then loses at exact `10^17` and exact `10^18`.
 
-- best closed-form seed: `cipolla_log5_repacked`
-- best deterministic inversion seed: `r_inverse_seed`
+The other line stopped asking for a prettier algebraic correction and asked a different question: if the counting model is better, should the seed come from inverting that better model directly? That produced `r_inverse_seed`, a deterministic inversion seed built from a truncated Riemann counting function and a fixed Newton rule. On the exact evidence now committed in the repository, it beats `li_inverse_seed` on exact anchors from `10^12` through `10^18` and across every exact family in `stage_a` and `stage_b`.
 
-These are judged on the same benchmark suite, but they are different kinds of objects and are kept as separate leaders.
+Those are different kinds of objects, so the repository keeps them separate. `cipolla_log5_repacked` is the best retained answer to the closed-form question. `r_inverse_seed` is the strongest exact seed result now in hand. They are judged on the same benchmark suite, but they are not collapsed into one claim.
 
-Current benchmark-backed reading:
-
-- `cipolla_log5_repacked` is the best retained closed-form seed
-- `cipolla_log5_repacked` beats `li_inverse_seed` on exact `stage_a` and exact `stage_b`
-- `cipolla_log5_repacked` leads through exact `10^16` and loses at exact `10^17` and exact `10^18`
-- `r_inverse_seed` is the strongest exact seed currently retained in the repository
-- `r_inverse_seed` beats `li_inverse_seed` on exact anchors from `10^12` through `10^18`
-- `r_inverse_seed` beats `li_inverse_seed` across every exact family in `stage_a` and `stage_b`
-- the current local continuation slice remains a separate provenance class and is not merged into the exact reading
-
-The category summary is in [CANDIDATE_CATEGORIES.md](./docs/CANDIDATE_CATEGORIES.md).
-
-## Shipped Runtime Objects
-
-This repository defines three shipped runtime objects:
-
-- `lpp_seed`: the closed-form integer estimate for the $n$th prime
-- `lpp_refined_predictor`: the seed followed by deterministic forward refinement to a prime output
-- `benchmark protocol`: the rules that determine what this repository may and may not claim from its results
-
-The seed and the refined predictor are separate estimands. Closed-form accuracy claims belong to `lpp_seed`. Prime-output utility claims belong to `lpp_refined_predictor`.
-
-## Foundational Documents
-
-- [ORIGIN.md](./docs/ORIGIN.md): the Lorentz inspiration and the invariant-normalization bridge into number theory
-- [CANDIDATE_CATEGORIES.md](./docs/CANDIDATE_CATEGORIES.md): the current retained leaders by category
-- [FORMULA.md](./docs/FORMULA.md): the shipped `lpp_seed` formula and its constants
-- [METHOD.md](./docs/METHOD.md): the shipped seed and refined predictor contract
-- [BENCHMARK_PROTOCOL.md](./docs/BENCHMARK_PROTOCOL.md): the deterministic rules for comparison, artifacts, and claim language
-
-## Research Contract Documents
-
-- [CLAIMS.md](./docs/CLAIMS.md): the exact claim boundary for public repository language
-- [REFERENCES.md](./docs/REFERENCES.md): the primary citation targets for formulas, comparators, and exact oracles
-- [VALIDATION_STATUS.md](./docs/VALIDATION_STATUS.md): what is and is not validated in the repository at the current stage
-- [API.md](./docs/API.md): the intended minimal Python and CLI contract for the reference implementation
-
-## Scientific Position
-
-The repository does not claim that relativistic physics is being imported into arithmetic as physics. The narrower claim is structural: invariant-normalized measurement suggests a useful way to organize nth-prime estimation.
-
-Whether that idea yields practically strong accuracy is a benchmark question, not a naming assumption. For that reason, the repository defines the benchmark protocol before making large comparative claims.
-
-The shipped runtime contract is published exact on the committed power-of-ten grid
+The shipped runtime surface is still intentionally narrow. The public implementation remains `lpp_seed` and `lpp_refined_predictor`, with published exact runtime values on the committed power-of-ten grid
 
 $$ n = 10^0,\dots,10^{24}. $$
 
-Outside that shipped grid, the refined predictor remains a deterministic prime output built from the closed-form seed.
+The newer leaders are benchmark-backed retained candidates. They are part of the repository's scientific record, but they are not silently folded into the minimal runtime API.
 
-## Benchmark Scope
+The benchmark language also stays narrow. This repository keeps three provenance classes separate: `published exact`, `reproducible exact`, and `local continuation`. Exact results and local continuation results are both useful, but they are not described as the same kind of evidence.
 
-This repository uses three provenance classes for benchmark labels:
+## Where To Read Next
 
-- `published exact`: backed by OEIS or another published external exact source
-- `reproducible exact`: generated by a declared exact method with committed artifacts and deterministic reproduction steps
-- `local continuation`: local non-published continuation labels used to extend workflow without claiming external verification
+If you want the clean current decisions, start with [docs/CANDIDATE_CATEGORIES.md](./docs/CANDIDATE_CATEGORIES.md).
 
-The main benchmark decisions are summarized in [CANDIDATE_CATEGORIES.md](./docs/CANDIDATE_CATEGORIES.md).
+If you want the shipped runtime contract, read:
 
-The stage-specific history of the shipped `lpp_seed` program remains available in [SCALING_RESULTS.md](./docs/SCALING_RESULTS.md) and [SCALING_INTERPRETATION.md](./docs/SCALING_INTERPRETATION.md), but those notes are supporting analysis rather than the main public summary of the repository.
+- [docs/FORMULA.md](./docs/FORMULA.md)
+- [docs/METHOD.md](./docs/METHOD.md)
+- [docs/API.md](./docs/API.md)
+
+If you want the benchmark rules and claim boundaries, read:
+
+- [docs/BENCHMARK_PROTOCOL.md](./docs/BENCHMARK_PROTOCOL.md)
+- [docs/CLAIMS.md](./docs/CLAIMS.md)
+- [docs/VALIDATION_STATUS.md](./docs/VALIDATION_STATUS.md)
+
+If you want the origin of the measurement idea, read [docs/ORIGIN.md](./docs/ORIGIN.md).
+
+If you want the supporting benchmark artifacts for the two retained leaders, read:
+
+- [benchmarks/cipolla_repacked_probe/README.md](./benchmarks/cipolla_repacked_probe/README.md)
+- [benchmarks/r_inverse_probe/README.md](./benchmarks/r_inverse_probe/README.md)
+
+The older stage-by-stage scaling notes for the shipped `lpp_seed` program remain available in:
+
+- [docs/SCALING_RESULTS.md](./docs/SCALING_RESULTS.md)
+- [docs/SCALING_INTERPRETATION.md](./docs/SCALING_INTERPRETATION.md)
