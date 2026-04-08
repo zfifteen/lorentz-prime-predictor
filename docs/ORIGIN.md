@@ -14,9 +14,13 @@ The point carried into this repository is not the whole apparatus of relativity.
 
 That idea motivates the generalized ratio-first expression
 
-$$ Z = A\left(\frac{B}{C}\right) $$
+$$ z = a(b/c) $$
 
-Here $A$ is an observer-framed measured quantity of a subject, $B$ is a measured rate of change of that same subject in the same unit, and $C$ is an invariant limit in that unit. The expression keeps the structural feature that matters: a measured state is read through change relative to a fixed bound.
+This is the domain-agnostic form of the method. It is not restricted to physics or number theory. A subject can be observed through its measured state $a$, its measured change $b$, and an invariant reference $c$ that fixes the scale of both.
+
+If $a$, $b$, and $c$ are valid observables, then the ratio $b/c$ and the product $a(b/c)$ are valid observables too. They are not decorative transformations applied after the fact. They are additional ground-truth relations of the same subject. The method gains information by promoting invariant-normalized relations into first-class observables.
+
+Here $a$ is an observer-framed measured quantity of a subject, $b$ is a measured rate of change of that same subject in the same unit, and $c$ is an invariant limit in that unit. The expression keeps the structural feature that matters: a measured state is read through change relative to a fixed bound.
 
 The bridge into number theory begins with a narrower question: when the subject is the location of the $n$th prime, what plays the role of the stable scale? In this repository, that role is played by the asymptotic backbone of prime growth. Raw magnitude alone does not organize the problem well enough. The main logarithmic scale does, and the remaining deviation terms become legible when they are measured against that scale.
 

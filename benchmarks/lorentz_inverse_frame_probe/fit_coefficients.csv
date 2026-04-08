@@ -1,0 +1,5 @@
+split,model,coefficient_1,coefficient_2
+baseline_to_stage_a,classical_inverse_frame,-0.050463888166658644,1.1074824939191337
+baseline_to_stage_a,lorentz_inverse_frame,-0.00045911320160106286,0.2036393532016
+baseline_stage_a_to_stage_b,classical_inverse_frame,-0.026877949246254293,0.7839282476759086
+baseline_stage_a_to_stage_b,lorentz_inverse_frame,-3.896589332684979e-05,0.20180926249244602
