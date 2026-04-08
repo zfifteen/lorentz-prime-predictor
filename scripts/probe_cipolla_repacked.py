@@ -121,7 +121,7 @@ def compute_basis(unique_n_values: list[int]) -> dict[int, dict[str, float]]:
     basis: dict[int, dict[str, float]] = {}
     for n_value in unique_n_values:
         precision = max(256, int(gp.log2(n_value)) + 256)
-        with gp.local_context(gp.context(), precision=precision):
+        with gp.context(gp.get_context(), precision=precision):
             n_mp = gp.mpfr(n_value)
             ln_n = gp.log(n_mp)
             ln_ln_n = gp.log(ln_n)

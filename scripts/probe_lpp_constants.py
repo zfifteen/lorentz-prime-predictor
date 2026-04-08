@@ -55,7 +55,7 @@ def compute_basis(unique_n: list[int]) -> dict[int, tuple[float, float, float]]:
             basis[n] = (2.0, 0.0, 0.0)
             continue
         precision = max(256, int(gp.log2(n)) + 256)
-        with gp.local_context(gp.context(), precision=precision):
+        with gp.context(gp.get_context(), precision=precision):
             n_mp = gp.mpfr(n)
             ln_n = gp.log(n_mp)
             ln_ln_n = gp.log(ln_n)

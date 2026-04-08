@@ -23,7 +23,13 @@ def _load_reference_module():
         raise RuntimeError(f"could not load reference predictor from {REFERENCE_PREDICTOR}")
     module = util.module_from_spec(spec)
     sys.modules[spec.name] = module
-    spec.loader.exec_module(module)
+    with warnings.catch_warnings():
+        warnings.filterwarnings(
+            "ignore",
+            message=r"local_context\(\) is deprecated, use context\(get_context\(\)\) instead\.",
+            category=DeprecationWarning,
+        )
+        spec.loader.exec_module(module)
     return module
 
 
@@ -50,10 +56,16 @@ class LPPTests(unittest.TestCase):
 
     def test_seed_matches_reference_closed_form_on_legacy_regime(self) -> None:
         reference = _load_reference_module()
-        for exponent in range(1, 18):
-            n = 10**exponent
-            with self.subTest(n=n):
-                self.assertEqual(lpp_seed(n), int(reference.closed_form_estimate(n)))
+        with warnings.catch_warnings():
+            warnings.filterwarnings(
+                "ignore",
+                message=r"local_context\(\) is deprecated, use context\(get_context\(\)\) instead\.",
+                category=DeprecationWarning,
+            )
+            for exponent in range(1, 18):
+                n = 10**exponent
+                with self.subTest(n=n):
+                    self.assertEqual(lpp_seed(n), int(reference.closed_form_estimate(n)))
 
     def test_refined_output_is_prime(self) -> None:
         value = lpp_refined_predictor(1000)

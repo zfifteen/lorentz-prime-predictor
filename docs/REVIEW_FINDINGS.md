@@ -63,5 +63,7 @@ This document records recent review findings for the repository, why they matter
   - direct test runs reported `local_context() is deprecated, use context(get_context()) instead.`
 - Remediation:
   - replaced the deprecated context manager with `gp.context(gp.get_context(), precision=precision)`
+  - applied the same context migration to the repo probe scripts that shared the pattern
   - kept precision selection, constants, rounding, and seed assembly unchanged
   - added a regression test that exercises `lpp_seed` and fails if that local deprecation warning returns
+  - filtered the archived reference predictor warning inside the parity test so the default `pytest -q` output stays clean without changing the external reference repo
