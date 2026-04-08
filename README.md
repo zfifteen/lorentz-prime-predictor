@@ -1,5 +1,7 @@
 # Lorentz Prime Predictor
 
+![Lorentz Prime Predictor hero](./docs/readme_assets/readme_hero_cosmic_backbone.png)
+
 The Lorentz Prime Predictor is a research repo about one narrow question: how should we build a seed for the $n$th prime if we treat prime growth as something to be measured against a stable scale rather than read as raw magnitude alone?
 
 In relativity, motion becomes more informative when it is written as $v/c$ instead of as a bare speed. This repository carries that same measurement instinct into number theory. The point is not that primes obey relativity as physics. The point is that invariant-normalized measurement may reveal cleaner structure in the problem of estimating $p_n$.
@@ -11,6 +13,10 @@ One line stayed in closed form. It asked for the strongest fully derived algebra
 The other line stopped asking for a prettier algebraic correction and asked a different question: if the counting model is better, should the seed come from inverting that better model directly? That produced `r_inverse_seed`, a deterministic inversion seed built from a truncated Riemann counting function and a fixed Newton rule. On the exact evidence now committed in the repository, it beats `li_inverse_seed` on exact anchors from `10^12` through `10^18` and across every exact family in `stage_a` and `stage_b`.
 
 Those are different kinds of objects, so the repository keeps them separate. `cipolla_log5_repacked` is the best retained answer to the closed-form question. `r_inverse_seed` is the strongest exact seed result now in hand. They are judged on the same benchmark suite, but they are not collapsed into one claim.
+
+The decade-anchor view makes the split visible. The closed-form line stays competitive for a surprisingly long stretch and remains the best retained closed-form answer through exact $10^{16}$. The inversion line is the one that keeps winning when the horizon gets harder. That is the sharpest result in the repository: the strongest exact advance did not come from a prettier algebraic correction. It came from changing what was inverted.
+
+![Seed error across exact decade anchors](./docs/readme_assets/seed_error_across_exact_decades.png)
 
 The shipped runtime surface is still intentionally narrow. The public implementation remains `lpp_seed` and `lpp_refined_predictor`, with published exact runtime values on the committed power-of-ten grid
 
