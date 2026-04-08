@@ -2,7 +2,9 @@
 
 ![Lorentz Prime Predictor hero](./docs/readme_assets/readme_hero_cosmic_backbone.png)
 
-The Lorentz Prime Predictor is a research repo about one narrow question: how should we build a seed for the $n$th prime if we treat prime growth as something to be measured against a stable scale rather than read as raw magnitude alone?
+The Lorentz Prime Predictor is a research repo with one primary goal: build a scientifically defensible seed for the $n$th prime by treating prime growth as something to be measured against a stable scale rather than read as raw magnitude alone.
+
+The benchmark program and the minimal runtime surface are supporting parts of that goal. The benchmarks test whether the measurement idea produces a real advantage. The runtime keeps the result narrow, deterministic, and easy to audit as a research instrument.
 
 In relativity, motion becomes more informative when it is written as $v/c$ instead of as a bare speed. This repository carries that same measurement instinct into number theory. The point is not that primes obey relativity as physics. The point is that invariant-normalized measurement may reveal cleaner structure in the problem of estimating $p_n$.
 
