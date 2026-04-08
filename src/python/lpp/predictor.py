@@ -54,7 +54,7 @@ def lpp_seed(n: int) -> int:
 
     precision = max(2048, int(gp.log2(n)) + 2048)
     # Match the legacy MPFR context semantics exactly; changing this altered rounded seeds on the contract grid.
-    with gp.local_context(gp.context(), precision=precision):
+    with gp.context(gp.get_context(), precision=precision):
         n_mp = gp.mpfr(n)
         c = gp.mpfr(_C_STR)
         kappa_star = gp.mpfr(_KAPPA_STAR_STR)

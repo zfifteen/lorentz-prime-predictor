@@ -35,6 +35,6 @@ So the large-stage win does not survive the leading-log simplification, and it d
 
 ## Artifacts
 
-- [complexity_ladder_summary.csv](/Users/velocityworks/IdeaProjects/lorentz-prime-predictor/benchmarks/nonheuristic_complexity_ladder/complexity_ladder_summary.csv)
-- [nonheuristic_complexity_ladder.png](/Users/velocityworks/IdeaProjects/lorentz-prime-predictor/benchmarks/nonheuristic_complexity_ladder/plots/nonheuristic_complexity_ladder.png)
+- [complexity_ladder_summary.csv](./complexity_ladder_summary.csv)
+- [nonheuristic_complexity_ladder.png](./plots/nonheuristic_complexity_ladder.png)
 

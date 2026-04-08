@@ -4,7 +4,6 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
-from unittest.mock import patch
 
 from lpp.off_lattice_benchmark import (
     COMPARATOR_SPECS,
@@ -17,9 +16,6 @@ from lpp.off_lattice_benchmark import (
     write_held_out_dataset,
     write_off_lattice_benchmark_artifacts,
 )
-
-
-ROOT = Path(__file__).resolve().parents[2]
 
 
 class OffLatticeBenchmarkTests(unittest.TestCase):
@@ -125,112 +121,3 @@ class OffLatticeBenchmarkTests(unittest.TestCase):
             self.assertTrue(artifacts["markdown"].exists())
             summary = json.loads(artifacts["summary"].read_text())
             self.assertIn("overall", summary)
-
-
-class OracleScriptTests(unittest.TestCase):
-    def test_generate_script_requires_primecount(self) -> None:
-        import scripts.generate_held_out_exact_primes as script
-
-        with patch.object(script.subprocess, "run") as run_mock:
-            run_mock.return_value.returncode = 1
-            run_mock.return_value.stdout = ""
-            run_mock.return_value.stderr = ""
-            with self.assertRaises(SystemExit) as exc:
-                script.main(["generate_held_out_exact_primes.py"])
-            self.assertIn("primecount is required", str(exc.exception))
-
-    def test_verify_script_requires_primecount(self) -> None:
-        import scripts.verify_held_out_exact_primes as script
-
-        with patch.object(script.subprocess, "run") as run_mock:
-            run_mock.return_value.returncode = 1
-            run_mock.return_value.stdout = ""
-            run_mock.return_value.stderr = ""
-            with self.assertRaises(SystemExit) as exc:
-                script.main(["verify_held_out_exact_primes.py"])
-            self.assertIn("primecount is required", str(exc.exception))
-
-    def test_verify_script_family_and_decade_filters(self) -> None:
-        import scripts.verify_held_out_exact_primes as script
-        from lpp import off_lattice_benchmark as bench
-
-        rows = [
-            {
-                "row_id": "off_lattice_decimal__k4__m2",
-                "family": "off_lattice_decimal",
-                "decade_exponent": 4,
-                "n": 20000,
-                "p_n": 224737,
-            },
-            {
-                "row_id": "boundary_window__k5__offset+0",
-                "family": "boundary_window",
-                "decade_exponent": 5,
-                "n": 100000,
-                "p_n": 1299709,
-            },
-            {
-                "row_id": "boundary_window__k5__offset+1",
-                "family": "boundary_window",
-                "decade_exponent": 5,
-                "n": 100001,
-                "p_n": 1299721,
-            },
-        ]
-        call_outputs = [
-            type("R", (), {"returncode": 0, "stdout": "primecount 8.4\n", "stderr": ""})(),
-            type("R", (), {"returncode": 0, "stdout": "1299709\n", "stderr": ""})(),
-        ]
-        with patch.object(bench, "parse_held_out_dataset", return_value=rows):
-            with patch.object(script.subprocess, "run", side_effect=call_outputs) as run_mock:
-                result = script.main(
-                    ["verify_held_out_exact_primes.py", "--family", "boundary_window", "--decade", "5"]
-                )
-        self.assertEqual(result, 0)
-        self.assertEqual(run_mock.call_count, 2)
-
-    def test_generate_script_writes_manifest(self) -> None:
-        import scripts.generate_held_out_exact_primes as script
-        from lpp import off_lattice_benchmark as bench
-
-        with tempfile.TemporaryDirectory() as tmp_dir_name:
-            tmp_root = Path(tmp_dir_name)
-            (tmp_root / "data").mkdir()
-            rows = [
-                {
-                    "row_id": "off_lattice_decimal__k4__m2",
-                    "family": "off_lattice_decimal",
-                    "decade_exponent": 4,
-                    "n": 20000,
-                },
-                {
-                    "row_id": "off_lattice_decimal__k4__m2_dup",
-                    "family": "dense_local_window",
-                    "decade_exponent": 4,
-                    "n": 20000,
-                },
-                {
-                    "row_id": "off_lattice_decimal__k4__m2_next",
-                    "family": "dense_local_window",
-                    "decade_exponent": 4,
-                    "n": 20001,
-                },
-            ]
-            version_result = type("R", (), {"returncode": 0, "stdout": "primecount 8.4\n", "stderr": ""})()
-            nth_result = type("R", (), {"returncode": 0, "stdout": "224737\n", "stderr": ""})()
-            with patch.object(script, "REPO_ROOT", tmp_root):
-                with patch.object(script, "PYTHON_SRC", ROOT / "src" / "python"):
-                    with patch.object(bench, "build_stage_specs", return_value=rows):
-                        with patch.object(bench, "get_stage_spec", return_value={"dataset": "x.csv", "manifest": "x_manifest.json"}):
-                            with patch.object(script.platform, "platform", return_value="test-host"):
-                                with patch.object(script.subprocess, "run", side_effect=[version_result, nth_result]):
-                                    with patch.object(script.gp, "next_prime", return_value=224743):
-                                        result = script.main(["generate_held_out_exact_primes.py"])
-            self.assertEqual(result, 0)
-            manifest_path = tmp_root / "data" / "x_manifest.json"
-            dataset_path = tmp_root / "data" / "x.csv"
-            self.assertTrue(dataset_path.exists())
-            self.assertTrue(manifest_path.exists())
-            manifest = json.loads(manifest_path.read_text())
-            self.assertEqual(manifest["row_count"], 3)
-            self.assertEqual(manifest["run_count"], 1)

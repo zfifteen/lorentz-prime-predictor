@@ -54,8 +54,8 @@ Cutoff rollups from the published exact grid:
 
 ## Artifacts
 
-- [required_c_by_row.csv](/Users/velocityworks/IdeaProjects/lorentz-prime-predictor/benchmarks/c_derivation_probe/required_c_by_row.csv)
-- [c_probe_rowwise.csv](/Users/velocityworks/IdeaProjects/lorentz-prime-predictor/benchmarks/c_derivation_probe/c_probe_rowwise.csv)
-- [c_probe_summary.csv](/Users/velocityworks/IdeaProjects/lorentz-prime-predictor/benchmarks/c_derivation_probe/c_probe_summary.csv)
-- [published_exact_point_comparison.csv](/Users/velocityworks/IdeaProjects/lorentz-prime-predictor/benchmarks/c_derivation_probe/published_exact_point_comparison.csv)
-- [published_exact_cutoff_comparison.csv](/Users/velocityworks/IdeaProjects/lorentz-prime-predictor/benchmarks/c_derivation_probe/published_exact_cutoff_comparison.csv)
+- [required_c_by_row.csv](./required_c_by_row.csv)
+- [c_probe_rowwise.csv](./c_probe_rowwise.csv)
+- [c_probe_summary.csv](./c_probe_summary.csv)
+- [published_exact_point_comparison.csv](./published_exact_point_comparison.csv)
+- [published_exact_cutoff_comparison.csv](./published_exact_cutoff_comparison.csv)

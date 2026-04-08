@@ -61,11 +61,11 @@ Pointwise on the published power-of-ten grid, the order-5 repacked seed wins fro
 
 ## Artifacts
 
-- [dataset_summary.csv](/Users/velocityworks/IdeaProjects/lorentz-prime-predictor/benchmarks/cipolla_repacked_probe/dataset_summary.csv)
-- [stage_family_summary.csv](/Users/velocityworks/IdeaProjects/lorentz-prime-predictor/benchmarks/cipolla_repacked_probe/stage_family_summary.csv)
-- [published_point_comparison.csv](/Users/velocityworks/IdeaProjects/lorentz-prime-predictor/benchmarks/cipolla_repacked_probe/published_point_comparison.csv)
-- [dataset_max_ppm_by_variant.png](/Users/velocityworks/IdeaProjects/lorentz-prime-predictor/benchmarks/cipolla_repacked_probe/plots/dataset_max_ppm_by_variant.png)
-- [stage_family_max_ppm_order5_vs_li.png](/Users/velocityworks/IdeaProjects/lorentz-prime-predictor/benchmarks/cipolla_repacked_probe/plots/stage_family_max_ppm_order5_vs_li.png)
-- [published_points_order5_vs_li.png](/Users/velocityworks/IdeaProjects/lorentz-prime-predictor/benchmarks/cipolla_repacked_probe/plots/published_points_order5_vs_li.png)
-- [published_points_order5_vs_grok_revised.png](/Users/velocityworks/IdeaProjects/lorentz-prime-predictor/benchmarks/cipolla_repacked_probe/plots/published_points_order5_vs_grok_revised.png)
+- [dataset_summary.csv](./dataset_summary.csv)
+- [stage_family_summary.csv](./stage_family_summary.csv)
+- [published_point_comparison.csv](./published_point_comparison.csv)
+- [dataset_max_ppm_by_variant.png](./plots/dataset_max_ppm_by_variant.png)
+- [stage_family_max_ppm_order5_vs_li.png](./plots/stage_family_max_ppm_order5_vs_li.png)
+- [published_points_order5_vs_li.png](./plots/published_points_order5_vs_li.png)
+- [published_points_order5_vs_grok_revised.png](./plots/published_points_order5_vs_grok_revised.png)
 

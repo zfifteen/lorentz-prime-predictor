@@ -188,11 +188,11 @@ Do not smuggle in a chosen coefficient and call it derived.
 
 Relevant artifacts inside this repository:
 
-- [ASYMP_C_BACKBONE_RATIO_K.md](/Users/velocityworks/IdeaProjects/lorentz-prime-predictor/docs/ASYMP_C_BACKBONE_RATIO_K.md)
-- [probe_k_derivation.py](/Users/velocityworks/IdeaProjects/lorentz-prime-predictor/scripts/probe_k_derivation.py)
-- [k_probe_summary.csv](/Users/velocityworks/IdeaProjects/lorentz-prime-predictor/benchmarks/k_derivation_probe/k_probe_summary.csv)
-- [claude_vs_li_inverse_summary.csv](/Users/velocityworks/IdeaProjects/lorentz-prime-predictor/benchmarks/k_derivation_probe/claude_vs_li_inverse_summary.csv)
-- [published_exact_point_comparison.csv](/Users/velocityworks/IdeaProjects/lorentz-prime-predictor/benchmarks/k_derivation_probe/published_exact_point_comparison.csv)
+- [ASYMP_C_BACKBONE_RATIO_K.md](./ASYMP_C_BACKBONE_RATIO_K.md)
+- [probe_k_derivation.py](../scripts/probe_k_derivation.py)
+- [k_probe_summary.csv](../benchmarks/k_derivation_probe/k_probe_summary.csv)
+- [claude_vs_li_inverse_summary.csv](../benchmarks/k_derivation_probe/claude_vs_li_inverse_summary.csv)
+- [published_exact_point_comparison.csv](../benchmarks/k_derivation_probe/published_exact_point_comparison.csv)
 
 ## One-Sentence Version
 

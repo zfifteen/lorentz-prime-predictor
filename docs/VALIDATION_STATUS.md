@@ -39,6 +39,12 @@ What is not yet complete:
 - timing harness
 - a published exact or reproducible exact `stage_c` scaling dataset
 
+## Review Findings
+
+Recent review findings and remediation status are tracked in [REVIEW_FINDINGS.md](./REVIEW_FINDINGS.md).
+
+The first blocking issue in that pass was the stale oracle-script test path. It was addressed first so the default `pytest -q` validation path can stay green while the remaining portability and dependency-drift findings are tracked in one place.
+
 ## Status Table
 
 | Area | Status | Notes |

@@ -3,6 +3,7 @@ from __future__ import annotations
 import subprocess
 import sys
 import unittest
+import warnings
 from pathlib import Path
 from importlib import util
 
@@ -38,6 +39,14 @@ class LPPTests(unittest.TestCase):
         self.assertEqual(lpp_seed(10), 17)
         self.assertEqual(lpp_seed(100), 508)
         self.assertEqual(lpp_seed(1000), 7857)
+
+    def test_seed_emits_no_local_context_deprecation_warning(self) -> None:
+        with warnings.catch_warnings(record=True) as caught:
+            warnings.simplefilter("always", DeprecationWarning)
+            value = lpp_seed(1000)
+        self.assertEqual(value, 7857)
+        messages = [str(warning.message) for warning in caught if issubclass(warning.category, DeprecationWarning)]
+        self.assertNotIn("local_context() is deprecated, use context(get_context()) instead.", messages)
 
     def test_seed_matches_reference_closed_form_on_legacy_regime(self) -> None:
         reference = _load_reference_module()

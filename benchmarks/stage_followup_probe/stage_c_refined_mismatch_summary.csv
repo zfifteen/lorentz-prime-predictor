@@ -1,0 +1,3 @@
+family,regime,row_count,max_absolute_error,mean_absolute_error,median_absolute_error
+boundary_window,off_anchor,9,134,28.88888888888889,8
+dense_local_window,off_anchor,72,328,47.916666666666664,34.0
