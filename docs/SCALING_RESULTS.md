@@ -1,5 +1,9 @@
 # Scaling Results
 
+This note records the scaling result for the shipped `lpp_seed` program.
+
+It is not the repository's cross-category summary. For the current retained leaders, see [CANDIDATE_CATEGORIES.md](./CANDIDATE_CATEGORIES.md).
+
 This document answers the main scaling question on the reproducible exact adversarial horizon that is currently completed in the repository.
 
 ## Direct Answer

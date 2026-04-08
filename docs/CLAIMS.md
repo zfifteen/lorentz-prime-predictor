@@ -4,10 +4,13 @@ This document defines the public claim boundary for the repository. It exists so
 
 ## Current Status
 
-This repository now supports narrow empirical claims, but only on the scopes and provenance classes already declared in the benchmark artifacts.
+This repository supports narrow empirical claims, but only on the scopes and provenance classes already declared in the benchmark artifacts.
 
 At the current stage, the repository supports:
 
+- the current category split between closed-form seeds, deterministic inversion seeds, and refined prime-output methods
+- the current retained closed-form leader `cipolla_log5_repacked`
+- the current retained deterministic inversion leader `r_inverse_seed`
 - the project name and public vocabulary
 - the formula chosen for `lpp_seed`
 - the method distinction between `lpp_seed` and `lpp_refined_predictor`
@@ -17,16 +20,21 @@ At the current stage, the repository supports:
 
 Current documents may say that:
 
-- on the completed reproducible exact stages through `stage_b`, `lpp_seed` does not retain the best worst-case seed ppm
-- on the completed reproducible exact stages through `stage_b`, `li_inverse_seed` has the best worst-case, mean, and median seed ppm in every tested scaling-stage family
-- on the local `stage_c` continuation, `lpp_seed` has the best worst-case seed ppm in every tested family
+- `cipolla_log5_repacked` is the current best retained closed-form seed candidate
+- `cipolla_log5_repacked` beats `li_inverse_seed` on exact `stage_a` and exact `stage_b`
+- `cipolla_log5_repacked` leads through exact `10^16` and loses at exact `10^17` and exact `10^18`
+- `r_inverse_seed` is the current best retained deterministic inversion seed candidate
+- `r_inverse_seed` beats `li_inverse_seed` on exact anchors from `10^12` through `10^18`
+- `r_inverse_seed` beats `li_inverse_seed` across every exact family in `stage_a` and `stage_b`
+- the current local continuation stage is still a different provenance class and must not be summarized as exact external evidence
 
 No current document should imply that:
 
-- the seed is benchmark-dominant on the published exact or reproducible exact scaling horizon
-- the scaling answer is exact through `stage_c`
-- the refined predictor is already practically superior
+- one category leader replaces another category leader
+- `r_inverse_seed` is a closed-form algebraic seed
 - the local continuation has the same evidence status as the published exact or reproducible exact stages
+- the deterministic inversion result removes all implementation choices
+- the refined predictor is already practically superior
 
 ## Claim Classes
 
@@ -52,7 +60,7 @@ These claims require code and tests.
 
 ### C. Closed-Form Seed Accuracy Claims
 
-These claims concern `lpp_seed` only.
+These claims concern a declared closed-form seed object.
 
 | Claim | Required evidence |
 |---|---|
@@ -73,7 +81,7 @@ The following are not sufficient for a seed-accuracy claim:
 
 ### D. Refined Predictor Claims
 
-These claims concern `lpp_refined_predictor` only.
+These claims concern a declared refined prime-output object.
 
 | Claim | Required evidence |
 |---|---|

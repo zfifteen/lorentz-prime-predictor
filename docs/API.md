@@ -4,6 +4,8 @@ This document defines the minimal public API and CLI contract for the Phase 3 re
 
 The contract is intentionally narrow. It covers only the predictor, its refined form, and version reporting.
 
+This API document is about the shipped runtime surface. It is not the summary of the current benchmark leaders, which is tracked in [CANDIDATE_CATEGORIES.md](./CANDIDATE_CATEGORIES.md).
+
 ## Python API
 
 The reference package should expose:

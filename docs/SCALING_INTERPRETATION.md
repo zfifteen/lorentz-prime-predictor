@@ -1,5 +1,9 @@
 # Scaling Interpretation
 
+This note interprets the scaling result for the shipped `lpp_seed` program.
+
+It is not the repository's cross-category summary. For the current retained leaders, see [CANDIDATE_CATEGORIES.md](./CANDIDATE_CATEGORIES.md).
+
 This note explains what the completed reproducible exact scaling results suggest, and what they do not prove.
 
 ## Concrete Result First

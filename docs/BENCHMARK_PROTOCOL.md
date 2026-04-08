@@ -6,10 +6,11 @@ This document defines the benchmark rules for evaluating the Lorentz Prime Predi
 
 Every benchmark must declare which estimand it measures:
 
-- `lpp_seed`, the closed-form integer seed
-- `lpp_refined_predictor`, the deterministic prime output obtained from that seed
+- a declared closed-form seed
+- a declared deterministic inversion seed
+- a declared refined prime-output method
 
-These are separate estimands. Seed results may not be summarized as refined results, and refined results may not be used as evidence for closed-form superiority.
+These are separate estimands. Seed results may not be summarized as refined results, and a category leader in one seed class may not be presented as if it automatically replaces another seed class.
 
 ## Governing Invariants
 

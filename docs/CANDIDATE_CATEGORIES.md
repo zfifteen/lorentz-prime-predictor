@@ -1,14 +1,14 @@
 # Candidate Categories
 
-This repository is now tracking different categories of nth-prime candidates against the same benchmark datasets.
+This repository keeps one retained leader in each candidate category and judges them on the same benchmark datasets.
 
-That split matters because not every strong candidate is the same kind of mathematical object.
+That split matters because not every strong result is the same kind of mathematical object.
 
 ## Closed-Form Seed Category
 
 A closed-form seed is a straight-line algebraic formula for an integer estimate of $p_n$.
 
-Current best candidate in this category:
+Current decision:
 
 - `cipolla_log5_repacked`
 
@@ -26,7 +26,7 @@ Primary artifact:
 
 A deterministic inversion seed solves a fixed analytic counting equation by a fixed deterministic rule.
 
-Current best candidate in this category:
+Current decision:
 
 - `r_inverse_seed`
 
@@ -58,8 +58,10 @@ It answers a different question from the seed categories above. It measures prim
 
 ## Why the Split Matters
 
-These categories should be judged on the same benchmark datasets, but they should not be merged into one claim.
+These categories are judged on the same benchmark datasets, but they should not be merged into one claim.
 
 - a stronger inversion seed does not automatically replace the best closed-form seed
 - a stronger closed-form seed does not automatically replace the best prime-output method
 - each category should keep its own leader and its own claim language
+
+This document records the current decisions only. The longer search history belongs in benchmark artifacts, not here.

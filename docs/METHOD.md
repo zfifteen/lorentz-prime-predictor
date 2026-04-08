@@ -1,5 +1,9 @@
 # Method
 
+This document defines the shipped runtime contract for `lpp_seed` and `lpp_refined_predictor`.
+
+It is separate from the benchmark-leader summary in [CANDIDATE_CATEGORIES.md](./CANDIDATE_CATEGORIES.md).
+
 The Lorentz Prime Predictor defines two related objects, and this repository keeps them separate in both prose and measurement.
 
 ## Closed-Form Seed

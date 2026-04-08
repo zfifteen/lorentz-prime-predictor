@@ -4,7 +4,12 @@ This document records what has and has not been validated in the repository at t
 
 ## Current State
 
-The repository now has a minimal reference implementation, direct API tests, a published exact shipped contract grid, and a reproducible exact adversarial benchmark program with completed scaling stages through `stage_b`.
+The repository now has a minimal reference implementation, direct API tests, a published exact shipped contract grid, and benchmark artifacts for two retained seed categories evaluated on the same benchmark suite.
+
+The retained category leaders are:
+
+- `cipolla_log5_repacked` for the closed-form seed category
+- `r_inverse_seed` for the deterministic inversion seed category
 
 The active local workflow in this repository treats committed datasets as fixed artifacts and keeps `stage_c` in the local continuation class.
 
@@ -22,7 +27,8 @@ What is currently complete:
 - the minimal Python reference implementation
 - direct tests for the public API and CLI surface
 - the shipped published exact contract grid through $10^{24}$
-- reproducible exact adversarial stages through `stage_b`
+- closed-form seed benchmark artifacts through exact `stage_b` plus exact anchors through `10^{18}`
+- deterministic inversion seed benchmark artifacts through exact `stage_b` plus exact anchors through `10^{18}`
 - a local `stage_c` continuation on $10^{17},10^{18}$
 
 What is not yet complete:
@@ -38,23 +44,26 @@ What is not yet complete:
 | Area | Status | Notes |
 |---|---|---|
 | Conceptual framing | complete | [ORIGIN.md](./ORIGIN.md) and [README.md](../README.md) are aligned. |
-| Formula specification | complete | [FORMULA.md](./FORMULA.md) fixes the current seed, constants, domain, and rounding rule. |
-| Method specification | complete | [METHOD.md](./METHOD.md) fixes the seed/refined separation. |
+| Formula specification | complete | [FORMULA.md](./FORMULA.md) fixes the shipped `lpp_seed`, its constants, domain, and rounding rule. |
+| Method specification | complete | [METHOD.md](./METHOD.md) fixes the shipped seed/refined separation. |
 | Benchmark contract | complete | [BENCHMARK_PROTOCOL.md](./BENCHMARK_PROTOCOL.md) defines the evaluation rules. |
 | Public claim boundary | complete | [CLAIMS.md](./CLAIMS.md) defines what the repo may and may not say. |
 | Reference set | complete | [REFERENCES.md](./REFERENCES.md) records the baseline citation targets. |
 | Public API contract | complete | [API.md](./API.md) defines the intended minimal Python and CLI surface. |
 | Python implementation | complete | Minimal `src/python/lpp/` package and CLI are present. |
 | Direct API tests | complete | Public API and CLI smoke tests exist under `tests/python/`. |
+| Category summary | complete | [CANDIDATE_CATEGORIES.md](./CANDIDATE_CATEGORIES.md) records the retained leaders by category. |
 | Test suite | in progress | Direct tests exist, but the broader semantic suite from the plan is not built yet. |
 | Comparator harness | complete | The off-lattice benchmark module implements the declared point-estimate comparator set for the held-out benchmark harness. |
 | Published exact contract-grid artifact | complete | The shipped $10^0,\dots,10^{24}$ grid is committed in `data/KNOWN_PRIMES.md` and backed by OEIS-published exact sources. |
 | Reproducible exact benchmark artifact beyond contract grid | complete on committed stages | The held-out adversarial datasets through `stage_b` are committed and consumed as reproducible exact artifacts in local workflow. |
+| Closed-form category leader artifact | complete | `cipolla_log5_repacked` benchmark artifacts are committed under `benchmarks/cipolla_repacked_probe/`. |
+| Deterministic inversion category leader artifact | complete | `r_inverse_seed` benchmark artifacts are committed under `benchmarks/r_inverse_probe/`. |
 | Local continuation | complete | A local `stage_c` dataset on $10^{17},10^{18}$ now exists in the declared local continuation class. |
 | Calibration surface declaration | not started | Constants are named, but no calibration artifact exists in this repo. |
 | Held-out benchmark evaluation | complete for reproducible exact stages through `stage_b` and local `stage_c` continuation | Reproducible exact adversarial artifacts now exist on $10^4,\dots,10^{12}$, $10^{13},10^{14}$, and $10^{15},10^{16}$, and a local continuation now exists on $10^{17},10^{18}$. |
-| Visualization suite | complete for reproducible exact stages through `stage_b` and local `stage_c` continuation | Deterministic plots exist for family, boundary, dense-window, and scaling behavior across the reproducible exact benchmark horizon plus the local continuation. |
-| Scaling answer program | complete through reproducible exact `stage_b`, with local `stage_c` continuation | The stage-aware benchmark now produces a mechanical conclusion across the reproducible exact benchmark horizon and the declared local continuation. |
+| Visualization suite | complete for reproducible exact stages through `stage_b` and local `stage_c` continuation | Deterministic plots exist for the retained category artifacts and the declared local continuation. |
+| Scaling notes for shipped `lpp_seed` | complete through reproducible exact `stage_b`, with local `stage_c` continuation | The stage-specific interpretation docs remain available for the shipped `lpp_seed` program. |
 | Sensitivity analysis | not started | No $\pm 10\%$ constant perturbation tables exist yet. |
 | Cost measurement | not started | No timing harness or practicality evidence exists yet. |
 
@@ -64,19 +73,20 @@ At the current stage, the repository can support statements like:
 
 - "The repository defines a closed-form seed and a deterministic refined predictor."
 - "The current working seed uses the constants $c = -0.00016667$ and $\kappa^* = 0.065$."
+- "`cipolla_log5_repacked` is the current retained leader in the closed-form seed category."
+- "`r_inverse_seed` is the current retained leader in the deterministic inversion seed category."
 - "The benchmark protocol requires deterministic families, declared ground-truth sources, and separate seed and refined tables."
 - "The repository contains a minimal Python implementation of `lpp_seed`, `lpp_refined_predictor`, and `get_version`."
 - "The shipped runtime and contract-grid dataset are published exact on $n = 10^0,\dots,10^{24}$."
-- "The repository contains a reproducible exact held-out adversarial benchmark on $10^4,\dots,10^{12}$ for off-lattice and boundary-window families."
+- "The repository contains reproducible exact held-out benchmark artifacts for the retained seed categories."
 - "The active local workflow consumes committed datasets as fixed artifacts."
-- "On the completed reproducible exact scaling stages through `stage_b`, `lpp_seed` does not retain the best worst-case seed ppm."
-- "On the completed reproducible exact scaling stages through `stage_b`, `li_inverse_seed` has the best worst-case, mean, and median seed ppm in every scaling-stage family."
 - "The repository contains a local `stage_c` continuation on $10^{17},10^{18}$."
-- "On the local `stage_c` continuation, `lpp_seed` has the best worst-case seed ppm in every tested family."
+- "The local `stage_c` continuation is a separate provenance class and is not summarized as exact external evidence."
 
 It cannot yet support statements like:
 
-- "The seed outperforms modern comparators on the published exact or reproducible exact scaling horizon."
+- "One category leader replaces every other category in the repository."
+- "`r_inverse_seed` is a closed-form formula."
 - "The scaling answer is exact through `stage_c`."
 - "The refined predictor is practically superior."
 - "The calibrated advantage is robust."

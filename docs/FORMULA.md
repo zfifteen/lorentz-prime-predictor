@@ -1,6 +1,10 @@
 # Formula
 
-This document defines the closed-form seed of the Lorentz Prime Predictor. The deterministic forward step that turns the seed into a prime output is defined separately in [METHOD.md](./METHOD.md).
+This document defines the shipped `lpp_seed` formula used by the reference implementation.
+
+It is not the category-summary page for the repository's retained benchmark leaders. Those are tracked separately in [CANDIDATE_CATEGORIES.md](./CANDIDATE_CATEGORIES.md).
+
+The deterministic forward step that turns the seed into a prime output is defined separately in [METHOD.md](./METHOD.md).
 
 In this repository, the seed contract begins at $n \geq 5$.
 
