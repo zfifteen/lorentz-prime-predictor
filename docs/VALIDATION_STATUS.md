@@ -4,7 +4,7 @@ This document records what has and has not been validated in the repository at t
 
 ## Current State
 
-The repository now has a minimal reference implementation, direct API tests, a published exact shipped contract grid, and an official exact benchmark suite for the four main formulas on `10^1` through `10^18`.
+The repository now has a minimal reference implementation, direct API tests, a published exact shipped contract grid, an official exact benchmark suite for the four main formulas on `10^1` through `10^18`, and a committed sensitivity artifact for the shipped `r_inverse_seed` launch path.
 
 The retained category leaders are:
 
@@ -33,12 +33,12 @@ What is currently complete:
 - closed-form seed benchmark artifacts beyond the official suite
 - deterministic inversion seed benchmark artifacts beyond the official suite
 - a local `stage_c` continuation on $10^{17},10^{18}$
+- sensitivity analysis for the shipped `r_inverse_seed` launch path
 
 What is not yet complete:
 
 - the broader research-grade test suite
 - rank-error reporting
-- sensitivity tables
 - timing harness
 - a full exact off-anchor benchmark horizon through $10^{18}$
 
@@ -74,7 +74,7 @@ The first blocking issue in that pass was the stale oracle-script test path. It 
 | Supporting exact and local probes | complete in current committed scope | Reproducible exact adversarial artifacts exist through `stage_b`, and a local continuation exists on $10^{17},10^{18}$. These remain supporting artifacts rather than the canonical top-level suite. |
 | Visualization suite | complete for the official anchor suite and current supporting probes | Deterministic plots exist for the official anchor suite, the retained category artifacts, and the declared local continuation. |
 | Scaling notes for shipped `lpp_seed` | complete as historical support | The stage-specific interpretation docs remain available for the shipped `lpp_seed` program, but they are no longer the canonical benchmark view. |
-| Sensitivity analysis | not started | No $\pm 10\%$ constant perturbation tables exist yet. |
+| Sensitivity analysis | complete | `±10%` one-at-a-time perturbation tables and plots committed under `benchmarks/r_inverse_sensitivity/`. All 35 of 35 exact scenario summaries beat `li_inverse_seed` on worst-case seed ppm. Perturbations did not change exact family-summary maxima. |
 | Cost measurement | not started | No timing harness or practicality evidence exists yet. |
 
 ## Supported Statements Right Now
@@ -96,6 +96,7 @@ At the current stage, the repository can support statements like:
 - "The active local workflow consumes committed datasets as fixed artifacts."
 - "The repository contains a local `stage_c` continuation on $10^{17},10^{18}$."
 - "The local `stage_c` continuation is a separate provenance class and is not summarized as exact external evidence."
+- "The shipped `r_inverse_seed` launch advantage is robust to `±10%` one-at-a-time perturbations of the repacked correction terms on the exact held-out surfaces tested."
 
 It cannot yet support statements like:
 
@@ -103,7 +104,6 @@ It cannot yet support statements like:
 - "`r_inverse_seed` is a closed-form formula."
 - "The scaling answer is exact through `stage_c`."
 - "The refined predictor is practically superior."
-- "The calibrated advantage is robust."
 - "The implementation is asymptotically superior."
 
 ## Next Validation Gates
@@ -113,7 +113,6 @@ The next validation gates are:
 1. deepen the semantic test suite beyond the current direct API checks
 2. decide how much exact off-anchor horizon beyond the official anchor suite should become canonical, and what provenance rule that wider suite should require
 3. add exact $\pi(x)$ support for rank-error reporting
-4. add sensitivity artifacts required by the protocol
-5. add timing artifacts required by the protocol
+4. add timing artifacts required by the protocol
 
 Until those gates are passed, the repository remains a specified research program rather than a validated software result.
