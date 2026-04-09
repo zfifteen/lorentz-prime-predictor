@@ -1,5 +1,7 @@
 # R-Inverse Seed Probe
 
+This is a supporting exact probe, not the official top-level benchmark suite. The canonical repository benchmark now lives in [power_of_ten_anchor_suite](../power_of_ten_anchor_suite/README.md).
+
 This probe tests a narrow question: whether a deterministic fixed-step inversion of the truncated Riemann prime-counting function can beat `li_inverse_seed` on the exact large-regime horizon already used in this repository.
 
 This is a different category of object from the closed-form seed search. `r_inverse_seed` is an inversion seed, not a closed-form algebraic seed.
@@ -49,4 +51,3 @@ $$ R'(x) = \frac{1}{\ln x}\sum_{k=1}^{K} \frac{\mu(k)}{k}x^{1/k - 1} $$
 - [exact_anchor_comparison.png](./plots/exact_anchor_comparison.png)
 - [exact_stage_family_max_ppm.png](./plots/exact_stage_family_max_ppm.png)
 - [local_continuation_family_max_ppm.png](./plots/local_continuation_family_max_ppm.png)
-

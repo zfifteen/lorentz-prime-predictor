@@ -5,72 +5,66 @@ import sys
 import unittest
 import warnings
 from pathlib import Path
-from importlib import util
 
 from sympy import isprime
 
-from lpp import get_version, lpp_refined_predictor, lpp_seed
+from lpp import (
+    cipolla_log5_repacked_seed,
+    get_version,
+    legacy_lpp_seed,
+    li_inverse_seed,
+    lpp_refined_predictor,
+    lpp_seed,
+    r_inverse_seed,
+)
 
 
 ROOT = Path(__file__).resolve().parents[2]
-REFERENCE_REPO = Path("/Users/velocityworks/IdeaProjects/archive/z5d-prime-predictor")
-REFERENCE_PREDICTOR = REFERENCE_REPO / "src/python/z5d_predictor/predictor.py"
-
-
-def _load_reference_module():
-    spec = util.spec_from_file_location("z5d_reference_predictor", REFERENCE_PREDICTOR)
-    if spec is None or spec.loader is None:
-        raise RuntimeError(f"could not load reference predictor from {REFERENCE_PREDICTOR}")
-    module = util.module_from_spec(spec)
-    sys.modules[spec.name] = module
-    with warnings.catch_warnings():
-        warnings.filterwarnings(
-            "ignore",
-            message=r"local_context\(\) is deprecated, use context\(get_context\(\)\) instead\.",
-            category=DeprecationWarning,
-        )
-        spec.loader.exec_module(module)
-    return module
 
 
 class LPPTests(unittest.TestCase):
     def test_get_version(self) -> None:
         self.assertEqual(get_version(), "0.1.0")
 
-    def test_seed_known_values(self) -> None:
-        self.assertEqual(lpp_seed(1), 2)
-        self.assertEqual(lpp_seed(2), 3)
-        self.assertEqual(lpp_seed(3), 4)
-        self.assertEqual(lpp_seed(4), 5)
-        self.assertEqual(lpp_seed(10), 17)
-        self.assertEqual(lpp_seed(100), 508)
-        self.assertEqual(lpp_seed(1000), 7857)
+    def test_official_seed_is_r_inverse(self) -> None:
+        for n in (1, 10, 100, 1000, 10**12, 10**17, 10**18):
+            with self.subTest(n=n):
+                self.assertEqual(lpp_seed(n), r_inverse_seed(n))
+
+    def test_official_seed_known_values(self) -> None:
+        expected = {
+            1: 2,
+            2: 3,
+            3: 4,
+            4: 5,
+            10: 17,
+            100: 537,
+            1000: 7923,
+            10000: 104768,
+            10**12: 29996225393473,
+            10**17: 4185296581676470097,
+            10**18: 44211790234127235508,
+        }
+        for n, value in expected.items():
+            with self.subTest(n=n):
+                self.assertEqual(lpp_seed(n), value)
+
+    def test_alternate_seeds_known_values(self) -> None:
+        self.assertEqual(legacy_lpp_seed(1000), 7857)
+        self.assertEqual(cipolla_log5_repacked_seed(1000), 7761)
+        self.assertEqual(li_inverse_seed(1000), 7763)
 
     def test_seed_emits_no_local_context_deprecation_warning(self) -> None:
         with warnings.catch_warnings(record=True) as caught:
             warnings.simplefilter("always", DeprecationWarning)
             value = lpp_seed(1000)
-        self.assertEqual(value, 7857)
+        self.assertEqual(value, 7923)
         messages = [str(warning.message) for warning in caught if issubclass(warning.category, DeprecationWarning)]
         self.assertNotIn("local_context() is deprecated, use context(get_context()) instead.", messages)
-
-    def test_seed_matches_reference_closed_form_on_legacy_regime(self) -> None:
-        reference = _load_reference_module()
-        with warnings.catch_warnings():
-            warnings.filterwarnings(
-                "ignore",
-                message=r"local_context\(\) is deprecated, use context\(get_context\(\)\) instead\.",
-                category=DeprecationWarning,
-            )
-            for exponent in range(1, 18):
-                n = 10**exponent
-                with self.subTest(n=n):
-                    self.assertEqual(lpp_seed(n), int(reference.closed_form_estimate(n)))
 
     def test_refined_output_is_prime(self) -> None:
         value = lpp_refined_predictor(1000)
         self.assertTrue(isprime(value))
-        self.assertGreaterEqual(value, lpp_seed(1000))
         self.assertEqual(value, 7919)
 
     def test_refined_matches_legacy_grid(self) -> None:
@@ -121,7 +115,7 @@ class LPPTests(unittest.TestCase):
             env={"PYTHONPATH": str(ROOT / "src/python")},
         )
         self.assertEqual(result.returncode, 0)
-        self.assertEqual(result.stdout, "7857\n")
+        self.assertEqual(result.stdout, "7923\n")
 
     def test_cli_refine(self) -> None:
         result = subprocess.run(

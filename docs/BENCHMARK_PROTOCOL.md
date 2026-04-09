@@ -2,6 +2,23 @@
 
 This document defines the benchmark rules for evaluating the Lorentz Prime Predictor against practical closed-form nth-prime comparators. Its purpose is to support bounded claims from declared evidence, not flattering tables.
 
+## Official Repository Benchmark Suite
+
+The official benchmark suite for top-level repository comparison is the exact power-of-ten anchor suite on
+
+$$ n = 10^1,\dots,10^{18}. $$
+
+It compares the four main formulas:
+
+- `lpp_seed`
+- `legacy_lpp_seed`
+- `cipolla_log5_repacked_seed`
+- `li_inverse_seed`
+
+Ground truth for this official suite comes from `data/KNOWN_PRIMES.md` and therefore stays in the `published exact` provenance class.
+
+This official suite is a retained-leader comparison surface, not the full literature-comparator surface. Other benchmark families and broader comparator probes remain useful, but they are supporting research artifacts unless a document explicitly says otherwise. In particular, the older stage-based exact and local continuation runs are not the canonical top-level benchmark surface anymore.
+
 ## Evaluated Objects
 
 Every benchmark must declare which estimand it measures:
@@ -29,7 +46,7 @@ Every benchmark in this repository must satisfy the following invariants:
 
 ## Comparator Set
 
-The minimum literature comparison set is:
+For literature-comparison benchmark runs, the minimum comparator set is:
 
 - first-order PNT inversion: $n \log n$
 - two-term PNT correction: $n(\log n + \log\log n - 1)$
@@ -39,6 +56,8 @@ The minimum literature comparison set is:
 - at least one modern explicit practical comparator from Axler or Dusart, with exact source citation and validity regime declared before evaluation
 
 If a cited Axler- or Dusart-derived object is a bound rather than a point estimate, it must be reported in a separate bound-validity table and not folded into seed ppm rankings.
+
+The official repository benchmark suite is narrower. It compares the retained category leaders plus the classical `li_inverse_seed` baseline on one clean exact surface. That suite is for repository-level standing and communication. The broader literature-comparison probes remain the place where the full comparator ladder is enforced.
 
 ## Oracle Rules
 
@@ -75,6 +94,14 @@ A sparse exact grid used to verify that implementations reproduce expected resul
 The current shipped contract-grid horizon is
 
 $$ n = 10^0,\dots,10^{24}. $$
+
+### Official Anchor Suite
+
+The canonical comparison surface for repository-level summary is the exact power-of-ten anchor family
+
+$$ n = 10^1,\dots,10^{18}. $$
+
+This family is sparse by design. Its purpose is not to replace all supporting probes. Its purpose is to give the repository one clean exact surface for category decisions, top-level plots, and README claims.
 
 ### Held-Out Off-Lattice Grid
 
@@ -231,3 +258,5 @@ Examples of unsupported language without stronger evidence:
 ## Target Outcome
 
 The goal is not to produce flattering tables. The goal is to produce results that remain persuasive to a skeptical technical reader who can see exactly what was compared, how it was measured, what numerical horizon was actually covered, and what claim the evidence supports.
+
+For this repository, the first summary view a reader sees should come from the official exact anchor suite. Denser and more irregular probes can strengthen or challenge that picture afterward, but they should not be required just to understand the current benchmark standing.

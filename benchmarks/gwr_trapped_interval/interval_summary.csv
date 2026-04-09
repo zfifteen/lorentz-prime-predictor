@@ -1,0 +1,2 @@
+row_count,exact_coverage_rate,median_interval_width,p90_interval_width,max_interval_width,median_interval_odd_count,p90_interval_odd_count,max_interval_odd_count,median_shrink_ratio_vs_r_inverse,p90_shrink_ratio_vs_r_inverse,median_shrink_ratio_vs_lpp_refined,p90_shrink_ratio_vs_lpp_refined
+15117,1.000000,1703,2665,2962,852,1333,1482,5074.394322,56422.546524,59401270.079895,14550374886.654545

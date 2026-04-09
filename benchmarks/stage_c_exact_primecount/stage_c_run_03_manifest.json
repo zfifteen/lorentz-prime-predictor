@@ -1,0 +1,14 @@
+{
+  "stage": "stage_c",
+  "run_index": 3,
+  "start_n": 99999999999998976,
+  "end_n": 100000000000000128,
+  "length": 1153,
+  "anchor_n": 99999999999998976,
+  "anchor_prime": 4185296581467652037,
+  "anchor_command": "primecount 99999999999998976 --nth-prime --threads=1",
+  "anchor_elapsed_seconds": 117.14652462501545,
+  "method": "primecount anchor plus exact next_prime stepping",
+  "row_count": 1281,
+  "source": "local exact generation"
+}

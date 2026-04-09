@@ -1,0 +1,5 @@
+heuristic,row_count,d4_truth_row_count,witness_match_rate_all,witness_match_rate_d4_truth,prime_match_rate_all,prime_match_rate_d4_truth,median_abs_candidate_minus_winner,p90_abs_candidate_minus_winner,median_abs_predicted_prime_minus_true,p90_abs_predicted_prime_minus_true,median_bracket_candidate_count
+nearest_d4,15117,12061,0.015612,0.019567,0.045379,0.056878,222.000,729.000,226.000,726.000,170.000
+edge_then_earliest,15117,12061,0.022756,0.028522,0.022756,0.028522,416.000,1237.000,412.000,1236.000,170.000
+edge_then_center,15117,12061,0.036449,0.045684,0.036449,0.045684,281.000,901.000,280.000,902.000,170.000
+edge2_then_center,15117,12061,0.041741,0.052317,0.042072,0.052732,237.000,766.000,234.000,766.000,170.000

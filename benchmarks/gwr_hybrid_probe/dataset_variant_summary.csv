@@ -1,0 +1,10 @@
+dataset,variant,row_count,median_abs_seed_minus_winner,p90_abs_seed_minus_winner,coverage_le_65536,coverage_le_1048576,median_witness_target_gain
+reproducible_exact_baseline,lpp_seed,2385,351844.000,82463604.000,0.441090,0.553040,-6.000
+reproducible_exact_baseline,cipolla_log5_repacked,2385,48361.000,3922674.600,0.552201,0.775262,10.000
+reproducible_exact_baseline,r_inverse_seed,2385,6567.000,1117061.800,0.668763,0.889308,-5.000
+reproducible_exact_stage_a,lpp_seed,6674,57981929329.500,135316092788.000,0.000000,0.000000,18.000
+reproducible_exact_stage_a,cipolla_log5_repacked,6674,13455923.500,39628910.700,0.000000,0.000000,18.000
+reproducible_exact_stage_a,r_inverse_seed,6674,3465021.000,13860928.400,0.000000,0.153581,-6.000
+reproducible_exact_stage_b,lpp_seed,6674,12516256258509.000,27209201038017.000,0.000000,0.000000,20.000
+reproducible_exact_stage_b,cipolla_log5_repacked,6674,104211234.500,459443557.700,0.000000,0.000000,-1.000
+reproducible_exact_stage_b,r_inverse_seed,6674,54711163.500,105510087.000,0.000000,0.000000,6.000

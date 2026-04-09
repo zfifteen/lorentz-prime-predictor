@@ -1,0 +1,9 @@
+run,label,family,variant,mean_rel_ppm,median_rel_ppm,max_rel_ppm
+stage_c_run_03,exact boundary around 10^17,boundary_window,lpp_seed,83.18271639105866,83.18271639106189,83.18271639115085
+stage_c_run_03,exact boundary around 10^17,boundary_window,cipolla_log5_repacked,0.0012186781520166724,0.0012186781485414714,0.0012186783091035708
+stage_c_run_03,exact boundary around 10^17,boundary_window,r_inverse_seed,4.98827963512179e-05,4.988279323487922e-05,4.988292201906211e-05
+stage_c_run_03,exact boundary around 10^17,boundary_window,li_inverse_seed,0.0004646402690542123,0.0004646402722356298,0.0004646403611182189
+stage_c_run_12,exact boundary around 10^18,boundary_window,lpp_seed,97.40288742597689,97.40288742597679,97.40288742598555
+stage_c_run_12,exact boundary around 10^18,boundary_window,cipolla_log5_repacked,0.0008837410491484081,0.0008837410376161918,0.0008837411482654096
+stage_c_run_12,exact boundary around 10^18,boundary_window,r_inverse_seed,1.594446903130646e-05,1.594446891328593e-05,1.5944477689225515e-05
+stage_c_run_12,exact boundary around 10^18,boundary_window,li_inverse_seed,0.00017375840545416814,0.00017375840533025096,0.00017375841412880895

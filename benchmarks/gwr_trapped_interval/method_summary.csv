@@ -1,0 +1,5 @@
+method,median,p90,max
+trapped_interval_width,1703,2665,2962
+trapped_interval_odd_count,852,1333,1482
+r_inverse_abs_error,6434332,87481628,105510886
+lpp_refined_abs_error,119135591298,24187476039110,27209201038768

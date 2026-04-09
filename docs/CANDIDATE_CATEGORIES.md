@@ -1,6 +1,6 @@
 # Candidate Categories
 
-This repository keeps one retained leader in each candidate category and judges them on the same benchmark datasets.
+This repository keeps one retained leader in each candidate category and judges them on the same official benchmark suite.
 
 That split matters because not every strong result is the same kind of mathematical object.
 
@@ -14,11 +14,16 @@ Current decision:
 
 Current exact reading:
 
-- it beats `li_inverse_seed` on exact `stage_a` and exact `stage_b`
+- on the official exact anchor suite, it stays ahead of `li_inverse_seed` through `10^16`
 - it leads through exact `10^16`
 - it loses at exact `10^17` and exact `10^18`
+- supporting exact stage-based probes also keep it ahead of `li_inverse_seed` through the committed exact `stage_b` horizon
 
-Primary artifact:
+Official suite artifact:
+
+- [benchmarks/power_of_ten_anchor_suite/README.md](../benchmarks/power_of_ten_anchor_suite/README.md)
+
+Supporting artifact:
 
 - [benchmarks/cipolla_repacked_probe/README.md](../benchmarks/cipolla_repacked_probe/README.md)
 
@@ -30,6 +35,10 @@ Current decision:
 
 - `r_inverse_seed`
 
+Official runtime identity:
+
+- `lpp_seed` now uses this construction as the shipped default path
+
 Construction:
 
 - truncate the Riemann prime-counting function at `K = 8`
@@ -38,11 +47,15 @@ Construction:
 
 Current exact reading:
 
-- it beats `li_inverse_seed` on exact anchors from `10^12` through `10^18`
-- it beats `li_inverse_seed` across every exact family in `stage_a` and `stage_b`
+- on the official exact anchor suite, it is sole best on `16` anchors, tied best at `10^4`, and best-or-tied-best on every anchor where it is defined from `10^2` through `10^18`
+- supporting exact stage-based probes also keep it ahead of `li_inverse_seed` across every committed exact family in `stage_a` and `stage_b`
 - it does not beat `li_inverse_seed` on the current local continuation stage
 
-Primary artifact:
+Official suite artifact:
+
+- [benchmarks/power_of_ten_anchor_suite/README.md](../benchmarks/power_of_ten_anchor_suite/README.md)
+
+Supporting artifact:
 
 - [benchmarks/r_inverse_probe/README.md](../benchmarks/r_inverse_probe/README.md)
 
@@ -58,7 +71,7 @@ It answers a different question from the seed categories above. It measures prim
 
 ## Why the Split Matters
 
-These categories are judged on the same benchmark datasets, but they should not be merged into one claim.
+These categories are judged on the same official benchmark suite, but they should not be merged into one claim.
 
 - a stronger inversion seed does not automatically replace the best closed-form seed
 - a stronger closed-form seed does not automatically replace the best prime-output method

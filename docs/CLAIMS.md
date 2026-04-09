@@ -15,17 +15,19 @@ At the current stage, the repository supports:
 - the formula chosen for `lpp_seed`
 - the method distinction between `lpp_seed` and `lpp_refined_predictor`
 - the benchmark rules that comparative claims must satisfy
-- reproducible exact comparative claims through `stage_b`
+- official exact comparative claims on the power-of-ten anchor suite through `10^18`
+- supporting reproducible exact comparative claims through `stage_b`
 - local continuation claims on `stage_c`
 
 Current documents may say that:
 
 - `cipolla_log5_repacked` is the current best retained closed-form seed candidate
-- `cipolla_log5_repacked` beats `li_inverse_seed` on exact `stage_a` and exact `stage_b`
+- `cipolla_log5_repacked` stays ahead of `li_inverse_seed` on the official exact anchor suite through `10^16`
 - `cipolla_log5_repacked` leads through exact `10^16` and loses at exact `10^17` and exact `10^18`
 - `r_inverse_seed` is the current best retained deterministic inversion seed candidate
-- `r_inverse_seed` beats `li_inverse_seed` on exact anchors from `10^12` through `10^18`
-- `r_inverse_seed` beats `li_inverse_seed` across every exact family in `stage_a` and `stage_b`
+- `lpp_seed` now uses the `r_inverse` construction as the shipped default implementation
+- `lpp_seed` is sole best on `16` official exact anchors and best-or-tied-best on `17` of the `18` official anchors
+- `r_inverse_seed` also beats `li_inverse_seed` across every exact family in `stage_a` and `stage_b`
 - the current local continuation stage is still a different provenance class and must not be summarized as exact external evidence
 
 No current document should imply that:
@@ -33,6 +35,7 @@ No current document should imply that:
 - one category leader replaces another category leader
 - `r_inverse_seed` is a closed-form algebraic seed
 - the local continuation has the same evidence status as the published exact or reproducible exact stages
+- the old stage-based suite is still the canonical top-level benchmark surface
 - the deterministic inversion result removes all implementation choices
 - the refined predictor is already practically superior
 

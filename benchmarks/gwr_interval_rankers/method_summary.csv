@@ -1,0 +1,8 @@
+method,row_count,median_interval_prime_count,p90_interval_prime_count,median_prime_checks,p90_prime_checks,max_prime_checks,top1_rate,top3_rate,top5_rate,median_abs_error,p90_abs_error,max_abs_error
+ascending_lo,15117,48,72,19,43,67,0.003109,0.028246,0.071641,630,1554,2730
+nearest_seed,15117,48,72,23,45,72,0.004300,0.021301,0.045842,762,1578,2730
+nearest_interval_mid,15117,48,72,15,41,75,0.042998,0.132434,0.214461,252,750,1506
+nearest_prime_center,15117,48,72,13,38,72,0.050010,0.142489,0.221605,224,728,1696
+from_prime_center,15117,48,72,19,45,78,0.047959,0.131111,0.209235,226,726,1736
+nearest_witness_tail_center,15117,48,72,13,38,72,0.046835,0.141298,0.221406,224,726,1696
+from_witness_tail_center,15117,48,72,18,45,78,0.049348,0.133095,0.212939,226,728,1736

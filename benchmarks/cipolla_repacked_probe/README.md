@@ -1,5 +1,7 @@
 # Consistent n-scale Cipolla Repacked Probe
 
+This is a supporting exact probe, not the official top-level benchmark suite. The canonical repository benchmark now lives in [power_of_ten_anchor_suite](../power_of_ten_anchor_suite/README.md).
+
 This probe tests one narrow question: whether a fully derived `k*(n)` can beat `li_inverse_seed` in the exact large regimes without introducing chosen coefficients.
 
 The construction keeps the existing backbone form, but derives both the bend and the lift from the same `n`-scale Cipolla expansion.
@@ -68,4 +70,3 @@ Pointwise on the published power-of-ten grid, the order-5 repacked seed wins fro
 - [stage_family_max_ppm_order5_vs_li.png](./plots/stage_family_max_ppm_order5_vs_li.png)
 - [published_points_order5_vs_li.png](./plots/published_points_order5_vs_li.png)
 - [published_points_order5_vs_grok_revised.png](./plots/published_points_order5_vs_grok_revised.png)
-

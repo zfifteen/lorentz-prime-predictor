@@ -1,4 +1,11 @@
-from .predictor import lpp_refined_predictor, lpp_seed
+from .predictor import (
+    cipolla_log5_repacked_seed,
+    legacy_lpp_seed,
+    li_inverse_seed,
+    lpp_refined_predictor,
+    lpp_seed,
+    r_inverse_seed,
+)
 from .version import VERSION
 
 
@@ -9,4 +16,12 @@ def get_version() -> str:
     return VERSION
 
 
-__all__ = ["get_version", "lpp_refined_predictor", "lpp_seed"]
+__all__ = [
+    "cipolla_log5_repacked_seed",
+    "get_version",
+    "legacy_lpp_seed",
+    "li_inverse_seed",
+    "lpp_refined_predictor",
+    "lpp_seed",
+    "r_inverse_seed",
+]

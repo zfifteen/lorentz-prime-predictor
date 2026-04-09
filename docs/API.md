@@ -1,17 +1,23 @@
 # API
 
-This document defines the minimal public API and CLI contract for the Phase 3 reference implementation.
+This document defines the public API and CLI contract for the reference implementation.
 
-The contract is intentionally narrow. It covers only the predictor, its refined form, and version reporting.
-
-This API document is about the shipped runtime surface. It is not the summary of the current benchmark leaders, which is tracked in [CANDIDATE_CATEGORIES.md](./CANDIDATE_CATEGORIES.md).
+The contract has one official runtime path and a small set of explicit alternates.
 
 ## Python API
 
-The reference package should expose:
+The reference package exposes:
 
 ```python
-from lpp import get_version, lpp_refined_predictor, lpp_seed
+from lpp import (
+    cipolla_log5_repacked_seed,
+    get_version,
+    legacy_lpp_seed,
+    li_inverse_seed,
+    lpp_refined_predictor,
+    lpp_seed,
+    r_inverse_seed,
+)
 ```
 
 ### `lpp_seed`
@@ -26,15 +32,14 @@ Contract:
 - input must be a Python integer
 - input must satisfy $n \geq 1$
 - output is a Python integer
-- output is the rounded closed-form seed defined in [FORMULA.md](./FORMULA.md)
-- rounding must follow the repository rule from [FORMULA.md](./FORMULA.md): nearest integer, with half-integers rounded upward
+- output is the official shipped seed defined in [FORMULA.md](./FORMULA.md)
+- for the main regime, this is the deterministic `r_inverse` construction
+- for `1 <= n < 100`, the implementation uses the narrow compatibility path described in [FORMULA.md](./FORMULA.md)
 
 Error behavior:
 
 - raise `TypeError` if `n` is not an integer
 - raise `ValueError` if `n < 1`
-
-The lower bound $n \geq 1$ is deliberate. The closed-form seed still uses the logarithmic backbone for the general path, but the shipped runtime contract includes exact committed values on the benchmark grid and small-index compatibility with the reference implementation.
 
 ### `lpp_refined_predictor`
 
@@ -51,7 +56,7 @@ Contract:
 - output is prime
 - output is computed by the deterministic rule from [METHOD.md](./METHOD.md):
 
-$$ lpp_refined_predictor(n) = nextPrime(lpp_seed(n) - 1) $$
+$$ lpp\_refined\_predictor(n) = nextPrime(lpp\_seed(n) - 1) $$
 
 Error behavior:
 
@@ -59,6 +64,23 @@ Error behavior:
 - raise `ValueError` if `n < 1`
 
 Runtime exactness is locked on the shipped benchmark grid $n = 10^0,\dots,10^{24}$. On those inputs, the implementation returns the committed exact prime value from the shipped dataset.
+
+### Alternate Seed Functions
+
+```python
+def legacy_lpp_seed(n: int) -> int: ...
+def cipolla_log5_repacked_seed(n: int) -> int: ...
+def li_inverse_seed(n: int) -> int: ...
+def r_inverse_seed(n: int) -> int: ...
+```
+
+Contract:
+
+- each input must be a Python integer
+- each input must satisfy $n \geq 1$
+- each output is a Python integer
+- `r_inverse_seed` is the explicit method name for the same construction that ships as `lpp_seed`
+- the other three are alternate formulas retained for comparison and analysis
 
 ### `get_version`
 
@@ -75,7 +97,7 @@ Contract:
 
 ## CLI Contract
 
-The minimal CLI should expose exactly three commands:
+The CLI keeps the official runtime surface narrow:
 
 ```text
 lpp seed N
@@ -94,29 +116,14 @@ Error behavior:
 - invalid input must produce a non-zero exit status
 - invalid input should print a short human-readable error to standard error
 
-## Non-Goals of the Minimal API
-
-The minimal public API does not include:
-
-- batch evaluation helpers
-- comparator functions
-- benchmark runners
-- calibration tools
-- plotting helpers
-- alternative predictor families
-
-Those may exist later as internal modules or benchmark-specific entrypoints, but they are outside the minimal public contract.
-
-## Contract Notes
-
-The reference implementation should make the rounding rule explicit in code rather than leaving it to language-default behavior. The repository contract is nearest-integer rounding with half-integers rounded upward.
+The alternates are part of the Python API but are not exposed as first-class CLI commands.
 
 ## Stability Rule
 
-Once the reference implementation lands, public names should remain:
+The public default names remain:
 
 - `lpp_seed`
 - `lpp_refined_predictor`
 - `get_version`
 
-If the formula changes, the function names should stay fixed unless the repository deliberately introduces a versioned predictor identity and updates this document explicitly.
+The official implementation behind `lpp_seed` can change only when the repository deliberately updates [FORMULA.md](./FORMULA.md), [METHOD.md](./METHOD.md), and this document together.

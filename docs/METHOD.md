@@ -6,40 +6,42 @@ It is separate from the benchmark-leader summary in [CANDIDATE_CATEGORIES.md](./
 
 The Lorentz Prime Predictor defines two related objects, and this repository keeps them separate in both prose and measurement.
 
-## Closed-Form Seed
+## Official Seed
 
-$$ lpp_seed(n) = \widehat{p}_n $$
+$$ lpp\_seed(n) = r\_inverse\_seed(n) $$
 
-`lpp_seed` is the analytic object defined in [FORMULA.md](./FORMULA.md). It returns an integer estimate for the $n$th prime for $n \geq 5$.
+`lpp_seed` is now the repository's official deterministic inversion seed. It returns an integer estimate for the $n$th prime for $n \geq 1$.
 
-This is the correct object for direct comparison against other closed-form nth-prime formulas. When the question is formula accuracy, the seed is the estimand.
+For the main regime, this is the fixed-step inverse construction defined in [FORMULA.md](./FORMULA.md). For the narrow low-index compatibility window below `100`, the runtime uses the legacy closed-form path so the public API stays defined on the full declared domain.
+
+This is the correct object for the repo's primary seed contract. The older closed-form path and the other comparison formulas remain available as alternates, not as the shipped default.
 
 ## Refined Predictor
 
-$$ lpp_refined_predictor(n) = nextPrime(\widehat{p}_n - 1) $$
+$$ lpp\_refined\_predictor(n) = nextPrime(lpp\_seed(n) - 1) $$
 
-`lpp_refined_predictor` starts at the seed and moves forward deterministically until a prime output is reached, again for $n \geq 5$.
+`lpp_refined_predictor` starts at the official seed and moves forward deterministically until a prime output is reached, again for $n \geq 1$.
 
-This answers a different question. It measures whether the seed is a useful launch point for a practical prime-returning method, not only whether the closed-form expression lands near $p_n$.
+This answers a different question. It measures whether the shipped seed is a useful launch point for a practical prime-returning method, not only whether the seed lands near $p_n$.
 
 ## Why the Separation Matters
 
-A strong refined predictor does not by itself prove a stronger closed-form formula. A strong closed-form formula does not by itself prove the best prime-output stack. The two layers support different claims and must not be merged into one headline result.
+A strong refined predictor does not by itself prove a stronger seed formula. A strong seed formula does not by itself prove the best prime-output stack. The two layers support different claims and must not be merged into one headline result.
 
 For this repository, that means:
 
-- seed tables report closed-form accuracy only
+- seed tables report seed accuracy only
 - refined tables report prime-output accuracy only
 - summary language must name which estimand is being discussed
 - refined comparisons are valid only when the refinement rule is shared across predictors
 
-## Output Contract
+## Alternate Seeds
 
-The first implementation in this repository should make the contract explicit:
+The codebase also exposes:
 
-- `lpp_seed` returns an integer estimate
-- `lpp_refined_predictor` returns a prime output
-- benchmark reports state clearly which object is being measured
-- both value error and rank error are reported where applicable
+- `legacy_lpp_seed`
+- `cipolla_log5_repacked_seed`
+- `li_inverse_seed`
+- `r_inverse_seed`
 
-That separation is part of the scientific contract of the repository, not a presentation preference.
+`r_inverse_seed` is the explicit method name for the same construction that now ships as `lpp_seed`. The other three names are alternate formulas retained for benchmark and research work.
