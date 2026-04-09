@@ -83,6 +83,7 @@ At the current stage, the repository can support statements like:
 
 - "The repository defines a closed-form seed and a deterministic refined predictor."
 - "The legacy closed-form path uses the constants $c = -0.00016667$ and $\kappa^* = 0.065$."
+- "For $n \geq 100$, the shipped `cipolla_log5_repacked_seed` uses repacked dynamic correction terms rather than those literal fixed constants."
 - "`cipolla_log5_repacked` is the current retained leader in the closed-form seed category."
 - "`r_inverse_seed` is the current retained leader in the deterministic inversion seed category."
 - "`lpp_seed` now ships the deterministic `r_inverse` construction as the official runtime seed."
